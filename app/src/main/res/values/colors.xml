@@ -3,4 +3,14 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    
+    <color name="colorRed">#FF0000</color>
+    <color name="colorWhiteFF">#FFFFFF</color>
+    <color name="colorWhiteEE">#EEEEEE</color>
+    <color name="colorWhiteDD">#DDDDDD</color>
+    <color name="colorGray99">#999999</color>
+    <color name="colorGray77">#777777</color>
+    <color name="colorGray66">#666666</color>
+    <color name="colorBlack22">#222222</color>
+    <color name="colorBlack00">#000000</color>
 </resources>
