@@ -1,3 +1,19 @@
 <resources>
-    <string name="app_name">TicketPass</string>
+    <string name="app_name">PreMaking</string>
+    <string name="Description">QR코드 찍고\n쉽고 빠르게 입장하기</string>
+    <string name="host_login">주최자로 로그인</string>
+    <string name="att_login">참가자로 로그인</string>
+    <string name="email">이메일</string>
+    <string name="email_typing">이메일을 입력해주세요.</string>
+    <string name="password">패스워드</string>
+    <string name="password_typing">패스워드를 입력해주세요.</string>
+    <string name="password_verify">패스워드 확인</string>
+    <string name="not_yet_att">아직 가입하지 않으셨다면</string>
+    <string name="singup">회원가입하기</string>
+    <string name="signup_indent">회원가입 하기</string>
+    <string name="tick_pass"><b>Ticket</b> Pass</string>
+    <string name="next_Btn">다음으로</string>
+    <string name="verify">인증번호</string>
+    <string name="verify_input">인증번호를 입력해주세요.</string>
+    <string name="password_constraint">4~16자리</string>
 </resources>
