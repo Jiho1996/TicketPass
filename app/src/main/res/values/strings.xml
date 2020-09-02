@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TicketPass</string>
+
+    <string name="guest_main">Ticket Pass</string>
 </resources>
