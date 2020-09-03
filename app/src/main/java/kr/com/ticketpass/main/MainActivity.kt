@@ -14,13 +14,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_select_type)
 
-        button.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+        att_login_button.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
         }
-        button2.setOnClickListener {
-            val intent = Intent (this, HostLoginActivity::class.java)
-            startActivity(intent)
+        host_login_button.setOnClickListener {
+            startActivity(Intent(this, HostLoginActivity::class.java))
         }
     }
 }

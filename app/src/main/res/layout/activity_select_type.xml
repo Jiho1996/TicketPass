@@ -63,7 +63,7 @@
 
 
         <LinearLayout
-            android:id="@+id/linearLayout3"
+            android:id="@+id/login_layout"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginTop="40dp"
@@ -73,7 +73,7 @@
             app:layout_constraintTop_toBottomOf="@id/textView">
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/att_login_button"
                 android:layout_width="160dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="32dp"
@@ -84,7 +84,7 @@
                 android:textColor="@color/colorDark" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/host_login_button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginRight="32dp"
