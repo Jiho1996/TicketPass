@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit
 
 val requestApi: Api by lazy {
     Retrofit.Builder()
-        .baseUrl("https://test.com/")
+        .baseUrl("http://ticketpass.puroong.me/")
         .client(provideOkHttpClient(provideLoggingInterceptor()))
         .addCallAdapterFactory(RxJava2CallAdapterFactory.createAsync())
         .addConverterFactory(GsonConverterFactory.create())
