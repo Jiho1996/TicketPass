@@ -6,7 +6,7 @@
     <data>
         <variable
             name="ViewModel"
-            type="kr.com.ticketpass.main.MainViewModel" />
+            type="kr.com.ticketpass.selectsigntype.SelectTypeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorWhite"
-        tools:context=".main.MainActivity">
+        tools:context=".selectsigntype.SelectTypeActivity">
 
         <ImageView
             android:id="@+id/login_image_logo"
@@ -36,7 +36,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/image_phone"
                 android:layout_width="882dp"
                 android:layout_height="615dp"
                 android:layout_marginLeft="-118dp"
@@ -47,13 +47,13 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/select_view_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="32dp"
             android:layout_marginTop="278dp"
             android:fontFamily="@font/paybooc_medium"
-            android:lineSpacingExtra="5sp"
+            android:lineSpacingExtra="6sp"
             android:text="@string/Description"
             android:textColor="@color/colorDark"
             android:textSize="24sp"
@@ -70,7 +70,7 @@
             android:layout_marginBottom="50dp"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="@id/mainConstraintLayout"
-            app:layout_constraintTop_toBottomOf="@id/textView">
+            app:layout_constraintTop_toBottomOf="@id/select_view_text">
 
             <Button
                 android:id="@+id/att_login_button"

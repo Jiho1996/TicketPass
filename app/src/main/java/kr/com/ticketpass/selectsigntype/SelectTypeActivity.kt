@@ -1,4 +1,4 @@
-package kr.com.ticketpass.main
+package kr.com.ticketpass.selectsigntype
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +9,7 @@ import kr.com.ticketpass.login.HostLoginActivity
 import kr.com.ticketpass.login.LoginActivity
 
 
-class MainActivity : AppCompatActivity() {
+class SelectTypeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_select_type)

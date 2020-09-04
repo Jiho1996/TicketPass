@@ -14,10 +14,10 @@
         android:id="@+id/main_constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorWhite">
+        android:background="@color/colorDark">
 
         <RelativeLayout
-            android:id="@+id/sign_up_title"
+            android:id="@+id/host_sign_up_title"
             android:layout_width="match_parent"
             android:layout_height="66dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -29,11 +29,11 @@
                 android:layout_centerInParent="true"
                 android:gravity="center"
                 android:text="@string/tick_pass"
-                android:textColor="@color/colorDark"
+                android:textColor="@color/colorWhite"
                 android:textSize="18sp" />
 
             <View
-                android:id="@+id/title_view"
+                android:id="@+id/host_title_view"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginTop="64dp"
@@ -44,7 +44,7 @@
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/login_email_text"
+            android:id="@+id/host_login_email_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="32dp"
@@ -56,10 +56,10 @@
             android:textColor="@color/colorWarm"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sign_up_title" />
+            app:layout_constraintTop_toBottomOf="@+id/host_sign_up_title" />
 
         <EditText
-            android:id="@+id/login_id_editText"
+            android:id="@+id/host_login_id_editText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -67,7 +67,7 @@
             android:layout_marginTop="14dp"
             android:layout_marginEnd="24dp"
             android:layout_marginRight="24dp"
-            android:background="@drawable/edit_text_underline_black"
+            android:background="@drawable/edit_text_underline_white"
             android:fontFamily="@font/paybooc_medium"
             android:gravity="left|center_vertical"
             android:hint="@string/email_typing"
@@ -78,13 +78,13 @@
             android:textColor="@color/colorWarm"
             android:textColorHint="@color/colorWarm"
             android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/login_id_warning_text"
+            app:layout_constraintBottom_toTopOf="@+id/host_login_id_warning_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_email_text" />
+            app:layout_constraintTop_toBottomOf="@+id/host_login_email_text" />
 
         <TextView
-            android:id="@+id/login_password_text"
+            android:id="@+id/host_login_password_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="32dp"
@@ -96,11 +96,11 @@
             android:textColor="@color/colorWarm"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/login_id_editText" />
+            app:layout_constraintTop_toBottomOf="@id/host_login_id_editText" />
 
         <RelativeLayout
-            android:id="@+id/verify_layout"
-            android:background="@drawable/edit_text_underline_black"
+            android:id="@+id/host_verify_layout"
+            android:background="@drawable/edit_text_underline_white"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -110,17 +110,17 @@
             android:layout_marginRight="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_password_text"
+            app:layout_constraintTop_toBottomOf="@+id/host_login_password_text"
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/login_password_editText"
+                android:id="@+id/host_login_password_editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="32dp"
                 android:layout_marginEnd="110dp"
                 android:layout_marginRight="24dp"
-                android:background="@drawable/edit_text_underline_black"
+                android:background="@drawable/edit_text_underline_white"
                 android:fontFamily="@font/paybooc_medium"
                 android:gravity="left|center_vertical"
                 android:hint="@string/verify_input"
@@ -133,7 +133,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/host_request_verify_textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -143,28 +143,28 @@
                 android:minHeight="26dp"
                 android:fontFamily="@font/paybooc_medium"
                 android:text="인증번호 요청"
-                android:textColor="@color/colorDark"
+                android:textColor="@color/colorWhite"
                 android:textSize="12sp" />
 
         </RelativeLayout>
 
         <Button
-            android:id="@+id/att_next_button"
+            android:id="@+id/host_next_button"
             android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_marginStart="32dp"
             android:layout_marginTop="288dp"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="55dp"
-            android:background="@drawable/bt_shape"
+            android:background="@drawable/bt_shape_dark"
             android:fontFamily="@font/paybooc_medium"
             android:text="@string/next_Btn"
-            android:textColor="@color/colorDark"
+            android:textColor="@color/colorWhite"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="@id/main_constraintLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/verify_layout" />
+            app:layout_constraintTop_toBottomOf="@id/host_verify_layout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
