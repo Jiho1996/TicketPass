@@ -15,12 +15,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".signup.HostSignUpPwActivity"></activity>
+        <activity android:name=".signup.SignUpActivity"></activity>
         <activity android:name=".signup.SignUpPwActivity"></activity>
         <activity android:name=".login.LoginActivity"></activity>
         <activity android:name=".login.HostLoginActivity"></activity>
         <activity android:name=".signup.SignUpEmailActivity"></activity>
-        <activity android:name=".signup.HostSignUpEmailActivity"></activity>
+
     </application>
 
 </manifest>

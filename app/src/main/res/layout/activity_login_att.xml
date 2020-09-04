@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="kr.com.ticketpass.login.LoginViewModel"
+            type="kr.com.ticketpass.viewmodel.LoginViewModel"
             />
     </data>
 

@@ -8,6 +8,7 @@ class SignupViewModel: ViewModel() {
     var password: String = ""
     val emailError: SingleLiveEvent<Void> = SingleLiveEvent()
     val passwordError: SingleLiveEvent<Void> = SingleLiveEvent()
+    val nextButtonClicked : SingleLiveEvent<Void> = SingleLiveEvent()
 
     fun isValidateEmailAndNumber(email: String, number: Int) {
         //이메일과 인증번호 검사
@@ -21,5 +22,8 @@ class SignupViewModel: ViewModel() {
 
     fun doSignup() {
         //뷰모델에 있는 이메일과 패스워드를 사용함
+    }
+    fun nextButtonClicked(){
+        nextButtonClicked.call()
     }
 }

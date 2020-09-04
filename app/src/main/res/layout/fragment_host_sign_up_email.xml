@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="kr.com.ticketpass.signup.SignUpViewModel"/>
+            type="kr.com.ticketpass.viewmodel.SignupViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -156,6 +156,7 @@
             android:layout_marginTop="288dp"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="55dp"
+            android:onClick="@{(view) -> viewModel.nextButtonClicked()}"
             android:background="@drawable/bt_shape_dark"
             android:fontFamily="@font/paybooc_medium"
             android:text="@string/next_Btn"
