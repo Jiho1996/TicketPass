@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="ViewModel"
+            type="kr.com.ticketpass.selectsigntype.SelectTypeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainConstraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        tools:context=".selectsigntype.SelectTypeActivity">
+
+        <ImageView
+            android:id="@+id/login_image_logo"
+            android:layout_width="146dp"
+            android:layout_height="42dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="40dp"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_logo" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/image_phone"
+                android:layout_width="882dp"
+                android:layout_height="615dp"
+                android:layout_marginLeft="-118dp"
+                android:layout_marginTop="42dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_login_phone" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/select_view_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="278dp"
+            android:fontFamily="@font/paybooc_medium"
+            android:lineSpacingExtra="6sp"
+            android:text="@string/Description"
+            android:textColor="@color/colorDark"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout" />
+
+
+        <LinearLayout
+            android:id="@+id/login_layout"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="50dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@id/mainConstraintLayout"
+            app:layout_constraintTop_toBottomOf="@id/select_view_text">
+
+            <Button
+                android:id="@+id/att_login_button"
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/bt_shape"
+                android:text="@string/att_login"
+                android:fontFamily="@font/paybooc_medium"
+                android:textColor="@color/colorDark" />
+
+            <Button
+                android:id="@+id/host_login_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="32dp"
+                android:background="@drawable/bt_shape_dark"
+                android:text="@string/host_login"
+                android:fontFamily="@font/paybooc_medium"
+                android:textColor="@color/colorWhite" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

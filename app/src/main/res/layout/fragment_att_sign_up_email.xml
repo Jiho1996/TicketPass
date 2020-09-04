@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="kr.com.ticketpass.signup.SignUpViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <RelativeLayout
+            android:id="@+id/att_sign_up_title"
+            android:layout_width="match_parent"
+            android:layout_height="66dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/main_constraintLayout">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/tick_pass"
+                android:textColor="@color/colorDark"
+                android:textSize="18sp" />
+
+            <View
+                android:id="@+id/att_title_view"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="64dp"
+                android:background="@color/colorWarm">
+
+            </View>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/att_login_email_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="39dp"
+            android:layout_marginRight="32dp"
+            android:fontFamily="@font/paybooc_medium"
+            android:gravity="left"
+            android:text="@string/email"
+            android:textColor="@color/colorWarm"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/att_sign_up_title" />
+
+        <EditText
+            android:id="@+id/att_login_id_editText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            android:background="@drawable/edit_text_underline_black"
+            android:fontFamily="@font/paybooc_medium"
+            android:gravity="left|center_vertical"
+            android:hint="@string/email_typing"
+            android:maxLength="8"
+            android:paddingStart="4dp"
+            android:paddingLeft="4dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/colorWarm"
+            android:textColorHint="@color/colorWarm"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/att_login_email_text" />
+
+        <TextView
+            android:id="@+id/att_login_password_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="32dp"
+            android:fontFamily="@font/paybooc_medium"
+            android:gravity="left"
+            android:text="@string/verify"
+            android:textColor="@color/colorWarm"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/att_login_id_editText" />
+
+        <RelativeLayout
+            android:id="@+id/att_verify_layout"
+            android:background="@drawable/edit_text_underline_black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/att_login_password_text"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/att_login_password_editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginEnd="110dp"
+                android:layout_marginRight="24dp"
+                android:background="@drawable/edit_text_underline_black"
+                android:fontFamily="@font/paybooc_medium"
+                android:gravity="left|center_vertical"
+                android:hint="@string/verify_input"
+                android:maxLength="8"
+                android:paddingStart="4dp"
+                android:paddingLeft="4dp"
+                android:paddingBottom="9dp"
+                android:textColor="@color/colorWarm"
+                android:textColorHint="@color/colorWarm"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/att_request_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="250dp"
+                android:layout_weight="46"
+                android:gravity="end|center_vertical"
+                android:minHeight="26dp"
+                android:fontFamily="@font/paybooc_medium"
+                android:text="인증번호 요청"
+                android:textColor="@color/colorDark"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/att_next_button"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="288dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="55dp"
+            android:background="@drawable/bt_shape"
+            android:fontFamily="@font/paybooc_medium"
+            android:text="@string/next_Btn"
+            android:textColor="@color/colorDark"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@id/main_constraintLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/att_verify_layout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

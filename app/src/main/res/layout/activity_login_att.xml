@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="kr.com.ticketpass.login.LoginViewModel"
+            />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <ImageView
+            android:id="@+id/login_image_logo"
+            android:layout_width="146dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginLeft="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_logo" />
+
+        <TextView
+            android:id="@+id/login_email_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginTop="37dp"
+            android:fontFamily="@font/paybooc_medium"
+            android:gravity="left"
+            android:textColor="@color/colorWarm"
+            android:textSize="14sp"
+            android:text="@string/email"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/login_image_logo" />
+
+        <EditText
+            android:id="@+id/login_id_editText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/edit_text_underline_black"
+            android:gravity="left|center_vertical"
+            android:maxLength="8"
+            android:paddingBottom="9dp"
+            android:paddingStart="4dp"
+            android:hint="@string/email_typing"
+            android:textColorHint="@color/colorWarm"
+            android:textSize="18sp"
+            android:textColor="@color/colorWarm"
+            android:fontFamily="@font/paybooc_medium"
+            app:layout_constraintBottom_toTopOf="@+id/login_id_warning_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_email_text"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="24dp"
+            android:paddingLeft="4dp" />
+
+        <TextView
+            android:id="@+id/login_id_warning_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:gravity="right"
+            android:textColor="@color/colorWarningRed"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_id_editText" />
+
+        <TextView
+            android:id="@+id/login_password_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/paybooc_medium"
+            android:gravity="left"
+            android:textColor="@color/colorWarm"
+            android:textSize="14sp"
+            android:text="@string/password"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/login_id_warning_text" />
+
+        <EditText
+            android:id="@+id/login_password_editText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/edit_text_underline_black"
+            android:gravity="left|center_vertical"
+            android:maxLength="8"
+            android:paddingBottom="9dp"
+            android:paddingStart="4dp"
+            android:hint="@string/password_typing"
+            android:textColorHint="@color/colorWarm"
+            android:textSize="18sp"
+            android:textColor="@color/colorWarm"
+            android:fontFamily="@font/paybooc_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_password_text"
+             android:layout_marginLeft="32dp"
+            android:layout_marginRight="24dp"
+            android:paddingLeft="4dp" />
+
+        <TextView
+            android:id="@+id/login_password_warning_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:gravity="right"
+            android:textColor="@color/colorWarningRed"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_password_editText" />
+
+        <TextView
+            android:id="@+id/login_notyet_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="190dp"
+            android:fontFamily="@font/paybooc_medium"
+            android:text="@string/not_yet_att"
+            android:textColor="@color/colorWarm"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/login_password_editText"
+            android:layout_marginLeft="24dp" />
+
+        <TextView
+            android:id="@+id/login_signup_text_att"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="190dp"
+            android:layout_marginLeft="8sp"
+            android:text="@string/singup"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            android:fontFamily="@font/paybooc_medium"
+            app:layout_constraintStart_toEndOf="@+id/login_notyet_text"
+            app:layout_constraintTop_toBottomOf="@id/login_password_editText" />
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="55dp"
+            android:background="@drawable/bt_shape"
+            android:text="@string/att_login"
+            android:textColor="@color/colorDark"
+            android:fontFamily="@font/paybooc_medium"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/main_constraintLayout"
+            app:layout_constraintTop_toBottomOf="@id/login_signup_text_att" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

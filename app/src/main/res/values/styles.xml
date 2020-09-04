@@ -10,7 +10,7 @@
     </style>
 
     <style name="TextViewStyle" parent="@android:style/Widget.DeviceDefault.TextView">
-        <item name="android:fontFamily">@font/paybooc_mediun</item>
+        <item name="android:fontFamily">@font/paybooc_medium</item>
     </style>
 
 </resources>
