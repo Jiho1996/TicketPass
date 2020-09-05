@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_login_att.*
 import kr.com.ticketpass.R
-import kr.com.ticketpass.signup.SignUpEmailActivity
+import kr.com.ticketpass.signup.SignUpEmailFragment
 
 
 class LoginActivity : AppCompatActivity() {
@@ -13,10 +13,10 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_att)
 
-        login_signup_text_att.setOnClickListener {
-            startActivity(Intent(this, SignUpEmailActivity::class.java))
+      /*  login_signup_text_att.setOnClickListener {
+            startActivity(Intent(this, SignUpEmailFragment::class.java))
         }
-        
+        */
         }
 
     }

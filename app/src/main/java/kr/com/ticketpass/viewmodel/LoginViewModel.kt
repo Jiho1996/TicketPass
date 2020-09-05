@@ -12,6 +12,7 @@ import kr.com.ticketpass.util.isValidatePassword
 class LoginViewModel: ViewModel() {
     val emailError: SingleLiveEvent<Void> = SingleLiveEvent()
     val passwordError: SingleLiveEvent<Void> = SingleLiveEvent()
+    val HostSignUpButtonClicked : SingleLiveEvent<Void> = SingleLiveEvent()
 
     fun doLogin(email: String, password: String, type: String) {
         // 아이디 검증과 패스워드 검증을 통과해야 api 호출 가능
@@ -25,5 +26,8 @@ class LoginViewModel: ViewModel() {
 
                 })
         }
+    }
+    fun HostSignUpButtonClicked(){
+        HostSignUpButtonClicked.call()
     }
 }

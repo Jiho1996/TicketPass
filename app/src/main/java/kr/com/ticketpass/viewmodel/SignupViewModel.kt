@@ -13,6 +13,7 @@ class SignupViewModel: ViewModel() {
     var code: String = ""
     val emailError: SingleLiveEvent<Void> = SingleLiveEvent()
     val passwordError: SingleLiveEvent<Void> = SingleLiveEvent()
+    val nextButtonClicked : SingleLiveEvent<Void> = SingleLiveEvent()
 
     fun doSignup() {
         //뷰모델에 있는 이메일과 패스워드를 사용함
@@ -35,5 +36,8 @@ class SignupViewModel: ViewModel() {
             }, {
 
             })
+    }
+    fun nextButtonClicked(){
+        nextButtonClicked.call()
     }
 }
