@@ -1,26 +1,29 @@
 package kr.com.ticketpass.viewmodel
 
 import androidx.lifecycle.ViewModel
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
+import kr.com.ticketpass.model.SignInForm
+import kr.com.ticketpass.network.requestApi
 import kr.com.ticketpass.util.SingleLiveEvent
+import kr.com.ticketpass.util.isValidateEmail
+import kr.com.ticketpass.util.isValidatePassword
 
 class LoginViewModel: ViewModel() {
     val emailError: SingleLiveEvent<Void> = SingleLiveEvent()
     val passwordError: SingleLiveEvent<Void> = SingleLiveEvent()
 
-    fun doLogin(email: String, password: String) {
+    fun doLogin(email: String, password: String, type: String) {
         // 아이디 검증과 패스워드 검증을 통과해야 api 호출 가능
         if (isValidateEmail(email) && isValidatePassword(password)) {
+            requestApi.doLogin(SignInForm(email, password, type))
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
 
+                }, {
+
+                })
         }
-    }
-
-    fun isValidateEmail(email: String): Boolean {
-        //정규표현식 로직
-        return false
-    }
-
-    fun isValidatePassword(password: String): Boolean {
-        //정규표현식 로직
-        return false
     }
 }
