@@ -12,11 +12,6 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_att)
-
-      /*  login_signup_text_att.setOnClickListener {
-            startActivity(Intent(this, SignUpEmailFragment::class.java))
-        }
-        */
         }
 
     }

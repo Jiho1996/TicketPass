@@ -17,4 +17,10 @@
         <string name="verify_input">인증번호를 입력해주세요.</string>
         <string name="password_constraint">4~16자리</string>
     <string name="guest_main">Ticket Pass</string>
+    <string name="manage_entrance">입장 관리</string>
+    <string name="scan_again">다시스캔</string>
+    <string name="verify_entrance">입장확인</string>
+    <string name="name">이름</string>
+    <string name="seat">좌석</string>
+    <string name="phone_num">연락처</string>
 </resources>
