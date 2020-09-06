@@ -14,52 +14,27 @@
         android:id="@+id/main_constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorWhite">
+        android:background="@color/colorDark">
 
-        <RelativeLayout
-            android:id="@+id/sign_up_title"
-            android:layout_width="match_parent"
-            android:layout_height="66dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/main_constraintLayout">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:gravity="center"
-                android:text="@string/tick_pass"
-                android:textColor="@color/colorDark"
-                android:textSize="18sp" />
-
-            <View
-                android:id="@+id/title_view"
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginTop="64dp"
-                android:background="@color/colorWarm">
-
-            </View>
-
-        </RelativeLayout>
 
         <TextView
-            android:id="@+id/sign_up_password_text"
+            android:id="@+id/event_title_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="32dp"
-            android:layout_marginTop="39dp"
+            android:layout_marginTop="40dp"
             android:layout_marginRight="32dp"
             android:fontFamily="@font/paybooc_medium"
             android:gravity="left"
-            android:text="@string/password"
+            android:text="@string/event_name"
             android:textColor="@color/colorWarm"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sign_up_title" />
+            app:layout_constraintTop_toTopOf="@+id/main_constraintLayout" />
 
         <EditText
-            android:id="@+id/login_id_editText"
+            android:id="@+id/event_title_edittext"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -67,10 +42,10 @@
             android:layout_marginTop="14dp"
             android:layout_marginEnd="24dp"
             android:layout_marginRight="24dp"
-            android:background="@drawable/edit_text_underline_black"
+            android:background="@drawable/edit_text_underline_white"
             android:fontFamily="@font/paybooc_medium"
             android:gravity="left|center_vertical"
-            android:hint="@string/password_constraint"
+            android:hint="@string/input_event_name"
             android:maxLength="8"
             android:paddingStart="4dp"
             android:paddingLeft="4dp"
@@ -78,42 +53,29 @@
             android:textColor="@color/colorWarm"
             android:textColorHint="@color/colorWarm"
             android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/login_id_warning_text"
+            app:layout_constraintBottom_toTopOf="@+id/host_login_id_warning_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sign_up_password_text" />
+            app:layout_constraintTop_toBottomOf="@+id/event_title_text" />
 
         <TextView
-            android:id="@+id/password_signup_warning_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            android:gravity="right"
-            android:textColor="@color/colorWarningRed"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_id_editText" />
-
-        <TextView
-            android:id="@+id/login_password_text"
+            android:id="@+id/event_place_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="32dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="32dp"
             android:fontFamily="@font/paybooc_medium"
             android:gravity="left"
-            android:text="@string/password_verify"
+            android:text="@string/event_place"
             android:textColor="@color/colorWarm"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/login_id_editText" />
+            app:layout_constraintTop_toBottomOf="@id/event_title_edittext" />
 
         <RelativeLayout
-            android:id="@+id/verify_layout"
-            android:background="@drawable/edit_text_underline_black"
+            android:id="@+id/event_place_layout"
+            android:background="@drawable/edit_text_underline_white"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -123,17 +85,20 @@
             android:layout_marginRight="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_password_text"
+            app:layout_constraintTop_toBottomOf="@+id/event_place_text"
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/login_password_editText"
+                android:id="@+id/event_info_input_place"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/edit_text_underline_black"
+                android:layout_marginLeft="32dp"
+                android:layout_marginEnd="110dp"
+                android:layout_marginRight="24dp"
+                android:background="@drawable/edit_text_underline_white"
                 android:fontFamily="@font/paybooc_medium"
                 android:gravity="left|center_vertical"
-                android:hint="@string/password_constraint"
+                android:hint="@string/input_event_place"
                 android:maxLength="8"
                 android:paddingStart="4dp"
                 android:paddingLeft="4dp"
@@ -142,39 +107,28 @@
                 android:textColorHint="@color/colorWarm"
                 android:textSize="18sp" />
 
+
+                android:textSize="12sp" />
+
         </RelativeLayout>
-        <TextView
-            android:id="@+id/sign_up_password_warning_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="24dp"
-            android:gravity="right"
-            android:textColor="@color/colorWarningRed"
-            android:textSize="10sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/verify_layout" />
 
         <Button
-            android:id="@+id/sign_up_button_att"
+            android:id="@+id/event_info_next_button"
             android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_marginStart="32dp"
             android:layout_marginTop="288dp"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="55dp"
-            android:background="@drawable/bt_shape"
+            android:background="@drawable/bt_shape_dark"
             android:fontFamily="@font/paybooc_medium"
-            android:text="@string/signup_indent"
-            android:textColor="@color/colorDark"
+            android:text="@string/next_Btn"
+            android:textColor="@color/colorWhite"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="@id/main_constraintLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/verify_layout" />
+            app:layout_constraintTop_toBottomOf="@id/event_place_layout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

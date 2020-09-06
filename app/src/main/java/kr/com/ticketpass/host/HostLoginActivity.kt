@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import kotlinx.android.synthetic.main.activity_login_host.*
 import kr.com.ticketpass.R
 import kr.com.ticketpass.databinding.ActivityLoginHostBinding
 import kr.com.ticketpass.viewmodel.LoginViewModel
@@ -21,7 +22,7 @@ class HostLoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login_host)
         initDataBinding()
 
-        binding.hostLoginSignupTextHost.setOnClickListener {
+        host_login_signup_text_host.setOnClickListener {
             startActivity(Intent(this, HostSignUpActivity::class.java))
         }
     }

@@ -35,5 +35,12 @@ class HostSignUpEmailFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+        binding.hostNextButton.setOnClickListener {
+            (activity as HostSignUpActivity).navigatePwFragment()
+        }
+
+    }
 }
