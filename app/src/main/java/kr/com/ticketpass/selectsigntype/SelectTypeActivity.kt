@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_select_type.*
 import kr.com.ticketpass.R
-import kr.com.ticketpass.login.HostLoginActivity
-import kr.com.ticketpass.login.LoginActivity
+import kr.com.ticketpass.host.HostLoginActivity
+import kr.com.ticketpass.guest.LoginActivity
 
 
 class SelectTypeActivity : AppCompatActivity() {

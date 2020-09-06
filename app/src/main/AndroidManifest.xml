@@ -16,9 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".login.LoginActivity"></activity>
-        <activity android:name=".signup.HostSignUpActivity"></activity>
-        <activity android:name=".login.HostLoginActivity"></activity>
+        <activity android:name=".guest.LoginActivity"></activity>
+        <activity android:name=".host.HostSignUpActivity"></activity>
+        <activity android:name=".host.HostLoginActivity"></activity>
         <activity android:name=".hostmanage.QReaderActivity"></activity>
     </application>
 

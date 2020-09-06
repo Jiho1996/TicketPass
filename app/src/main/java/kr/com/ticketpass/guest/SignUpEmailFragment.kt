@@ -1,17 +1,13 @@
-package kr.com.ticketpass.signup
+package kr.com.ticketpass.guest
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import kotlinx.android.synthetic.main.fragment_att_sign_up_email.*
-import kr.com.ticketpass.R
 import kr.com.ticketpass.databinding.FragmentAttSignUpEmailBinding
-import kr.com.ticketpass.databinding.FragmentHostSignUpEmailBinding
+import kr.com.ticketpass.host.HostSignUpEmailFragment
 import kr.com.ticketpass.viewmodel.SignupViewModel
 
 class SignUpEmailFragment : Fragment() {
