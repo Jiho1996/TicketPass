@@ -10,7 +10,7 @@
         android:background="@color/colorDark">
 
         <TextView
-            android:id="@+id/host_sign_up_container_title"
+            android:id="@+id/host_signup_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"

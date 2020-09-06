@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import kr.com.ticketpass.R
-import kr.com.ticketpass.databinding.ActivitySignupBinding
+import kr.com.ticketpass.databinding.ActivityDefaultSignupBinding
 import kr.com.ticketpass.guest.SignUpEmailFragment
 import kr.com.ticketpass.guest.SignUpPwFragment
 import kr.com.ticketpass.viewmodel.SignupViewModel
@@ -15,11 +15,11 @@ class SignupActivity : AppCompatActivity() {
         ViewModelProvider(this@SignupActivity).get(SignupViewModel::class.java)
     }
 
-    private lateinit var binding: ActivitySignupBinding
+    private lateinit var binding: ActivityDefaultSignupBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_signup)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_default_signup)
 
         changeFragment("email")
     }

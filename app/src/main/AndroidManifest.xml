@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".TicketPassApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
@@ -19,7 +20,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
 
         <activity android:name=".guest.LoginActivity" />
@@ -28,7 +28,6 @@
 
         <activity android:name=".host.HostLoginActivity" />
 
-<<<<<<< Updated upstream
         <activity android:name=".hostmanage.QReaderActivity" >
 
         </activity>
@@ -39,11 +38,7 @@
 
         </activity>
         <activity android:name=".host.SignupActivity"/>
-=======
-        <activity android:name=".hostmanage.QReaderActivity" />
 
-        <activity android:name=".host.SignupActivity" />
->>>>>>> Stashed changes
     </application>
 
 </manifest>
