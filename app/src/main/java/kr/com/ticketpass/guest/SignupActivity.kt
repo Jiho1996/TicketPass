@@ -2,14 +2,13 @@ package kr.com.ticketpass.host
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import kr.com.ticketpass.R
 import kr.com.ticketpass.databinding.ActivitySignupBinding
+import kr.com.ticketpass.guest.SignUpEmailFragment
 import kr.com.ticketpass.viewmodel.SignupViewModel
 
-
-class HostSignUpActivity : AppCompatActivity() {
+class SignupActivity : AppCompatActivity() {
     private val viewModel: SignupViewModel by lazy {
         ViewModelProvider(this).get(SignupViewModel::class.java)
     }
@@ -17,14 +16,14 @@ class HostSignUpActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_signup)
+        binding = ActivitySignupBinding.inflate(layoutInflater)
 
         changeFragment()
     }
 
     private fun changeFragment() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.host_sign_up_container, HostSignUpEmailFragment())
+            .replace(R.id.host_sign_up_container, SignUpEmailFragment())
             .addToBackStack(null)
             .commit()
     }

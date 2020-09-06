@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import kr.com.ticketpass.R
 import kr.com.ticketpass.databinding.FragmentHostSignUpEmailBinding
 import kr.com.ticketpass.viewmodel.SignupViewModel
 

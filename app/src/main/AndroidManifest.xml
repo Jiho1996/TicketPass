@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
+
         <activity android:name=".selectsigntype.SelectTypeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,10 +17,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".guest.LoginActivity"></activity>
-        <activity android:name=".host.HostSignUpActivity"></activity>
-        <activity android:name=".host.HostLoginActivity"></activity>
-        <activity android:name=".hostmanage.QReaderActivity"></activity>
+
+        <activity android:name=".guest.LoginActivity" />
+
+        <activity android:name=".host.HostSignUpActivity" />
+
+        <activity android:name=".host.HostLoginActivity" />
+
+        <activity android:name=".hostmanage.QReaderActivity" />
     </application>
 
 </manifest>
