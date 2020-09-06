@@ -8,6 +8,11 @@ import androidx.fragment.app.Fragment
 import kr.com.ticketpass.R
 
 class HostSignUpPwFragment : Fragment() {
+    companion object{
+        fun newInstance() : HostSignUpPwFragment {
+            return HostSignUpPwFragment()
+        }
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

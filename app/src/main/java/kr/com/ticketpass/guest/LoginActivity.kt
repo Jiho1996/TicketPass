@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_login_att.*
 import kr.com.ticketpass.R
 import kr.com.ticketpass.host.HostSignUpActivity
+import kr.com.ticketpass.host.SignupActivity
 
 
 class LoginActivity : AppCompatActivity() {
@@ -14,7 +15,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login_att)
 
         login_signup_text_att.setOnClickListener {
-            startActivity(Intent(this, HostSignUpActivity::class.java))
+            startActivity(Intent(this, SignupActivity::class.java))
         }
     }
 

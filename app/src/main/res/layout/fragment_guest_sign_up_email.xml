@@ -16,47 +16,20 @@
         android:layout_height="match_parent"
         android:background="@color/colorWhite">
 
-        <RelativeLayout
-            android:id="@+id/att_sign_up_title"
-            android:layout_width="match_parent"
-            android:layout_height="66dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/main_constraintLayout">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:gravity="center"
-                android:text="@string/tick_pass"
-                android:textColor="@color/colorDark"
-                android:textSize="18sp" />
-
-            <View
-                android:id="@+id/att_title_view"
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginTop="64dp"
-                android:background="@color/colorWarm">
-
-            </View>
-
-        </RelativeLayout>
-
         <TextView
             android:id="@+id/att_login_email_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="32dp"
-            android:layout_marginTop="39dp"
+            android:layout_marginTop="40dp"
             android:layout_marginRight="32dp"
             android:fontFamily="@font/paybooc_medium"
             android:gravity="left"
+            app:layout_constraintTop_toTopOf="@id/main_constraintLayout"
             android:text="@string/email"
             android:textColor="@color/colorWarm"
             android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/att_sign_up_title" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/att_login_id_editText"
@@ -148,7 +121,7 @@
         </RelativeLayout>
 
         <Button
-            android:id="@+id/att_next_button"
+            android:id="@+id/guest_next_button"
             android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_marginStart="32dp"
