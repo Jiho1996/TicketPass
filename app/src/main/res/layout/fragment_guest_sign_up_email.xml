@@ -32,7 +32,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/att_login_id_editText"
+            android:id="@+id/guest_signup_email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -44,12 +44,10 @@
             android:fontFamily="@font/paybooc_medium"
             android:gravity="left|center_vertical"
             android:hint="@string/email_typing"
-            android:maxLength="8"
             android:paddingStart="4dp"
             android:paddingLeft="4dp"
             android:paddingBottom="10dp"
             android:textColor="@color/colorWarm"
-            android:textColorHint="@color/colorWarm"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -68,7 +66,7 @@
             android:textColor="@color/colorWarm"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/att_login_id_editText" />
+            app:layout_constraintTop_toBottomOf="@id/guest_signup_email" />
 
         <RelativeLayout
             android:id="@+id/att_verify_layout"
@@ -86,7 +84,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/att_login_password_editText"
+                android:id="@+id/guest_signup_email_code"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="32dp"
@@ -105,12 +103,11 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/att_request_text"
+                android:id="@+id/guest_signup_email_code_request"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginLeft="250dp"
-                android:layout_weight="46"
                 android:gravity="end|center_vertical"
                 android:minHeight="26dp"
                 android:fontFamily="@font/paybooc_medium"
@@ -121,7 +118,7 @@
         </RelativeLayout>
 
         <Button
-            android:id="@+id/guest_next_button"
+            android:id="@+id/guest_signup_next_btn"
             android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_marginStart="32dp"

@@ -44,7 +44,7 @@
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/host_sign_up_password_text"
+            android:id="@+id/host_signup_password_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="32dp"
@@ -59,7 +59,7 @@
             app:layout_constraintTop_toBottomOf="@+id/host_sign_up_title" />
 
         <EditText
-            android:id="@+id/host_login_id_editText"
+            android:id="@+id/host_signup_password"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -81,7 +81,7 @@
             app:layout_constraintBottom_toTopOf="@+id/host_login_id_warning_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/host_sign_up_password_text" />
+            app:layout_constraintTop_toBottomOf="@+id/host_signup_password_text" />
 
         <TextView
             android:id="@+id/host_password_signup_warning_text"
@@ -94,7 +94,7 @@
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/host_login_id_editText" />
+            app:layout_constraintTop_toBottomOf="@+id/host_signup_password_text" />
 
         <TextView
             android:id="@+id/host_login_password_text"
@@ -109,7 +109,7 @@
             android:textColor="@color/colorWarm"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/host_login_id_editText" />
+            app:layout_constraintTop_toBottomOf="@id/host_signup_password" />
 
         <RelativeLayout
             android:id="@+id/host_verify_layout"
@@ -127,7 +127,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/host_login_password_editText"
+                android:id="@+id/host_signup_password_verify"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edit_text_underline_white"
@@ -159,7 +159,7 @@
             app:layout_constraintTop_toBottomOf="@+id/host_verify_layout" />
 
         <Button
-            android:id="@+id/host_sign_up_button_host"
+            android:id="@+id/host_signup_submit_btn"
             android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_marginStart="32dp"

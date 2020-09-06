@@ -13,7 +13,7 @@ class HostSignUpActivity : AppCompatActivity() {
         ViewModelProvider(this).get(SignupViewModel::class.java)
     }
     private val hostSignUpEmailFragment = HostSignUpEmailFragment.newInstance()
-    private val hostSignUpPwFragment = HostSignUpPwFragment.newInstance()
+    private val hostSignUpPwFragment = HostSignUpPwFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +23,7 @@ class HostSignUpActivity : AppCompatActivity() {
 
     private fun navigateEmailFragment() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.host_sign_up_container, hostSignUpEmailFragment)
+            .replace(R.id.sign_up_container, HostSignUpEmailFragment())
             .addToBackStack(null)
             .commit()
     }

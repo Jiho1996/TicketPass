@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="kr.com.ticketpass">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="true"
@@ -25,6 +28,7 @@
 
         <activity android:name=".host.HostLoginActivity" />
 
+<<<<<<< Updated upstream
         <activity android:name=".hostmanage.QReaderActivity" >
 
         </activity>
@@ -35,6 +39,11 @@
 
         </activity>
         <activity android:name=".host.SignupActivity"/>
+=======
+        <activity android:name=".hostmanage.QReaderActivity" />
+
+        <activity android:name=".host.SignupActivity" />
+>>>>>>> Stashed changes
     </application>
 
 </manifest>

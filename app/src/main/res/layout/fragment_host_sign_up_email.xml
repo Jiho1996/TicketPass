@@ -59,7 +59,7 @@
             app:layout_constraintTop_toBottomOf="@+id/host_sign_up_title" />
 
         <EditText
-            android:id="@+id/host_login_id_editText"
+            android:id="@+id/host_signup_email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -96,7 +96,7 @@
             android:textColor="@color/colorWarm"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/host_login_id_editText" />
+            app:layout_constraintTop_toBottomOf="@id/host_signup_email" />
 
         <RelativeLayout
             android:id="@+id/host_verify_layout"
@@ -114,7 +114,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/host_login_password_editText"
+                android:id="@+id/host_signup_email_code"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="32dp"
@@ -133,7 +133,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/host_request_verify_textView"
+                android:id="@+id/host_signup_email_request"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -149,7 +149,7 @@
         </RelativeLayout>
 
         <Button
-            android:id="@+id/host_next_button"
+            android:id="@+id/host_signup_next_btn"
             android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_marginStart="32dp"

@@ -32,7 +32,7 @@
             app:layout_constraintTop_toTopOf="@+id/main_constraintLayout" />
 
         <EditText
-            android:id="@+id/login_id_editText"
+            android:id="@+id/guest_signup_password_verify"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -82,7 +82,7 @@
             android:textColor="@color/colorWarm"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/login_id_editText" />
+            app:layout_constraintTop_toBottomOf="@id/guest_signup_password_verify" />
 
         <RelativeLayout
             android:id="@+id/verify_layout"
@@ -100,7 +100,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/login_password_editText"
+                android:id="@+id/guest_signup_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edit_text_underline_black"
@@ -132,7 +132,7 @@
             app:layout_constraintTop_toBottomOf="@+id/verify_layout" />
 
         <Button
-            android:id="@+id/sign_up_button_att"
+            android:id="@+id/guest_signup_password_btn"
             android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_marginStart="32dp"
