@@ -12,7 +12,6 @@ import kr.com.ticketpass.databinding.FragmentHostEventInfoTimeBinding
 class HostEventInfoTimeFragment : Fragment() {
 
     lateinit var viewModelFactory: ViewModelProvider.Factory
-    //private lateinit var viewModel:
     private lateinit var binding: FragmentHostEventInfoTimeBinding
 
     companion object {

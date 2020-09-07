@@ -17,5 +17,8 @@ class HostManageActivity : AppCompatActivity() {
         guest_list_button.setOnClickListener {
             startActivity(Intent(this, HostEditGuestActivity::class.java))
         }
+        }
+    override fun onBackPressed() {
+        super.onBackPressed()
     }
-}
+    }

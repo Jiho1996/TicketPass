@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import kr.com.ticketpass.databinding.FragmentHostEventInfoEventBinding
+import kr.com.ticketpass.util.toastUtil
 
 class HostEventInfoEventFragment : Fragment() {
 
@@ -36,7 +37,12 @@ class HostEventInfoEventFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.eventInfoNextButton.setOnClickListener {
-            (activity as HostEventManageActivity).navigatePwFragment()
+            if (binding.eventTitleEdittext.text.toString().isNotBlank()) {
+                (activity as HostEventManageActivity).navigatePwFragment()
+            } else {
+                activity?.toastUtil("행사 이름을 입력해주십시오")
+            }
+        }
+
         }
     }
-}

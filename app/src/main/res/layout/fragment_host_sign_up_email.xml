@@ -28,8 +28,7 @@
             android:textColor="@color/colorWarm"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintTop_toTopof="@+id/main_constraintLayout" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/host_signup_email"

@@ -38,8 +38,4 @@ class LoginViewModel : ViewModel() {
                 Logger.d(it.localizedMessage)
             })
     }
-
-    fun HostSignUpButtonClicked() {
-        HostSignUpButtonClicked.call()
-    }
 }
