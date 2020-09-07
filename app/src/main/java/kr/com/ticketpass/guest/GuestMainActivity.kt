@@ -1,13 +1,16 @@
 package kr.com.ticketpass.guest
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kr.com.ticketpass.R
 import kr.com.ticketpass.databinding.ActivityGuestMainBinding
+import kr.com.ticketpass.model.TicketResponse
 import kr.com.ticketpass.viewmodel.GuestMainViewModel
 
 class GuestMainActivity: AppCompatActivity() {
@@ -16,18 +19,30 @@ class GuestMainActivity: AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityGuestMainBinding
+    private lateinit var adapter: GuestMainAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_guest_main)
 
         initRecyclerView()
+        setLivedataObserver()
+        viewModel.getTicketList()
+
     }
 
     private fun initRecyclerView() {
+        adapter = GuestMainAdapter(mutableListOf(), binding.guestMainList)
         binding.guestMainList.run {
             layoutManager = LinearLayoutManager(this@GuestMainActivity, RecyclerView.VERTICAL, false)
-            adapter = GuestMainAdapter(mutableListOf(), binding.guestMainList)
+            adapter = this@GuestMainActivity.adapter
         }
+    }
+
+    private fun setLivedataObserver() {
+        viewModel.getTicketSuccess.observe(this, Observer {
+            adapter.addUnExpiredList(viewModel.unexpiredList as MutableList<TicketResponse.TicketInfo>)
+            adapter.addExpiredList(viewModel.expiredList as MutableList<TicketResponse.TicketInfo>)
+        })
     }
 }

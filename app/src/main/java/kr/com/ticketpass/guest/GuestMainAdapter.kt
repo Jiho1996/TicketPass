@@ -53,7 +53,6 @@ class GuestMainAdapter(
         expireSize = tickets.size
         this.tickets.clear()
         this.tickets.addAll(tickets)
-        notifyDataSetChanged()
     }
 
     fun addExpiredList(tickets: MutableList<TicketResponse.TicketInfo>) {

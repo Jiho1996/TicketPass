@@ -8,8 +8,8 @@ import android.view.animation.Animation
 import android.view.animation.Transformation
 import androidx.constraintlayout.widget.ConstraintLayout
 
-class LayoutTicket(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
-    ConstraintLayout(context, attrs, defStyleAttr) {
+class LayoutTicket(context: Context, attrs: AttributeSet?) :
+    ConstraintLayout(context, attrs) {
     private var expanded = false
     private var duration = 0
 

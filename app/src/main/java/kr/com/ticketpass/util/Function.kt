@@ -1,5 +1,9 @@
 package kr.com.ticketpass.util
 
+import android.content.Context
+import android.content.SharedPreferences
+import kr.com.ticketpass.R
+
 fun isValidateEmail(email: String): Boolean {
     //정규표현식 로직
     val emailRegExp = "^[a-zA-Z0-9._%^-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$".toRegex()
