@@ -5,6 +5,6 @@
     <item
         android:title="강의 추가"
         android:id="@+id/menu_lecture_add"
-        android:icon="@drawable/ic_more"
+        android:icon="@drawable/ic_dark_more"
         app:showAsAction="always"/>
 </menu>

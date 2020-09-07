@@ -39,6 +39,9 @@
         </activity>
         <activity android:name=".host.GuestSignupActivity"/>
 
+        <activity android:name=".guest.GuestMainActivity" >
+        </activity>
+
     </application>
 
 </manifest>
