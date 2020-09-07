@@ -6,14 +6,11 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kr.com.ticketpass.model.SignInForm
 import kr.com.ticketpass.network.requestApi
-import kr.com.ticketpass.util.SingleLiveEvent
-import kr.com.ticketpass.util.isValidateEmail
-import kr.com.ticketpass.util.isValidatePassword
+import kr.com.ticketpass.util.*
 
 class LoginViewModel : ViewModel() {
     val emailError: SingleLiveEvent<Void> = SingleLiveEvent()
     val passwordError: SingleLiveEvent<Void> = SingleLiveEvent()
-    val HostSignUpButtonClicked: SingleLiveEvent<Void> = SingleLiveEvent()
     val loginSuccess: SingleLiveEvent<Void> = SingleLiveEvent()
 
     fun doLogin(email: String, password: String, type: String) {
@@ -34,6 +31,8 @@ class LoginViewModel : ViewModel() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 loginSuccess.call()
+                SharedPreferenceManager.setToken(it.accessToken)
+                SharedPreferenceManager.setPref(ConstValue.CONST_USER_ID, it.user.id)
             }, {
                 Logger.d(it.localizedMessage)
             })

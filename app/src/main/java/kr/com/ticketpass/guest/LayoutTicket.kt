@@ -8,8 +8,8 @@ import android.view.animation.Animation
 import android.view.animation.Transformation
 import androidx.constraintlayout.widget.ConstraintLayout
 
-class LayoutTicket(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
-    ConstraintLayout(context, attrs, defStyleAttr) {
+class LayoutTicket(context: Context, attrs: AttributeSet?) :
+    ConstraintLayout(context, attrs) {
     private var expanded = false
     private var duration = 0
 
@@ -28,7 +28,7 @@ class LayoutTicket(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
     private fun expandView(view: View) {
         view.measure(
             WindowManager.LayoutParams.MATCH_PARENT,
-            View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
+            WindowManager.LayoutParams.WRAP_CONTENT
         )
         val targetHeight: Int = view.getMeasuredHeight()
         // Older versions of android (pre API 21) cancel animations for views with a height of 0.

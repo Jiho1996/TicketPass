@@ -62,10 +62,10 @@ interface Api {
     @GET("/v1/users/{userId}/tickets")
     fun getTickets(
         @Header("Authorization") authorization: String,
+        @Path("userId") userId: String,
         @Query("expiredSize") expiredSize: Int,
-        @Query("unexpiredSize") unexpiredSize: Int,
-        @Path("userId") userId: String
-    ) : Single<ConcertInfo>
+        @Query("unexpiredSize") unexpiredSize: Int
+    ) : Single<TicketResponse>
 
     @POST("/v1/users/{userId}/use-ticket")
     fun postTickets(
