@@ -15,6 +15,11 @@
         android:theme="@style/Theme.AppCompat.NoActionBar">
 
         <activity android:name=".selectsigntype.SelectTypeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity android:name=".guest.GuestLoginActivity" />
@@ -35,11 +40,6 @@
         <activity android:name=".host.GuestSignupActivity"/>
 
         <activity android:name=".guest.GuestMainActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
     </application>

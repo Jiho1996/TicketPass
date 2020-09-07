@@ -12,7 +12,9 @@ import kr.com.ticketpass.viewmodel.LoginViewModel
 
 
 class HostLoginActivity : AppCompatActivity() {
-    private lateinit var viewModel: LoginViewModel
+    private val viewModel: LoginViewModel by lazy {
+        ViewModelProvider(this).get(LoginViewModel::class.java)
+    }
     private val binding: ActivityLoginHostBinding by lazy {
         ActivityLoginHostBinding.inflate(layoutInflater)
     }
@@ -20,17 +22,11 @@ class HostLoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_host)
-        initDataBinding()
+        binding.viewModel = viewModel
 
         host_login_signup_text_host.setOnClickListener {
             startActivity(Intent(this, HostSignUpActivity::class.java))
         }
     }
-
-    private fun initDataBinding() {
-        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
-        binding.viewModel = viewModel
-    }
-
 
 }
