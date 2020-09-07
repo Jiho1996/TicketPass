@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".guest.LoginActivity" />
+        <activity android:name=".guest.GuestLoginActivity" />
 
         <activity android:name=".host.HostSignUpActivity" />
 
@@ -37,7 +37,7 @@
         <activity android:name=".host.HostEventManageActivity">
 
         </activity>
-        <activity android:name=".host.SignupActivity"/>
+        <activity android:name=".host.GuestSignupActivity"/>
 
     </application>
 

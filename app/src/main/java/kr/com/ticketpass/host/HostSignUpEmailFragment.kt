@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import kr.com.ticketpass.R
 import kr.com.ticketpass.databinding.FragmentHostSignUpEmailBinding
 import kr.com.ticketpass.util.toastUtil
 import kr.com.ticketpass.viewmodel.SignupViewModel
@@ -44,7 +43,7 @@ class HostSignUpEmailFragment : Fragment() {
             if (binding.hostSignupEmailCode.text.toString().isNotEmpty()) {
                 viewModel.email = binding.hostSignupEmail.text.toString()
                 viewModel.code = binding.hostSignupEmailCode.text.toString()
-                (activity as SignupActivity).changeFragment("password")
+                (activity as GuestSignupActivity).changeFragment("password")
             } else {
                 activity?.toastUtil("인증번호를 입력해주십시오.")
             }

@@ -11,7 +11,7 @@ import kr.com.ticketpass.viewmodel.SignupViewModel
 import kr.com.ticketpass.util.isValidatePasswordAndRePassword
 import kr.com.ticketpass.util.toastUtil
 
-class SignUpPwFragment : Fragment() {
+class GuestSignUpPwFragment : Fragment() {
     private lateinit var viewModel: SignupViewModel
     private lateinit var binding: FragmentGuestSignUpPwBinding
 

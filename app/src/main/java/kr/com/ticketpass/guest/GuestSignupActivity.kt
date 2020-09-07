@@ -6,13 +6,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import kr.com.ticketpass.R
 import kr.com.ticketpass.databinding.ActivityDefaultSignupBinding
-import kr.com.ticketpass.guest.SignUpEmailFragment
-import kr.com.ticketpass.guest.SignUpPwFragment
+import kr.com.ticketpass.guest.GuestSignUpEmailFragment
+import kr.com.ticketpass.guest.GuestSignUpPwFragment
 import kr.com.ticketpass.viewmodel.SignupViewModel
 
-class SignupActivity : AppCompatActivity() {
+class GuestSignupActivity : AppCompatActivity() {
     private val viewModel: SignupViewModel by lazy {
-        ViewModelProvider(this@SignupActivity).get(SignupViewModel::class.java)
+        ViewModelProvider(this@GuestSignupActivity).get(SignupViewModel::class.java)
     }
 
     private lateinit var binding: ActivityDefaultSignupBinding
@@ -28,14 +28,14 @@ class SignupActivity : AppCompatActivity() {
         when (type) {
             "email" -> {
                 supportFragmentManager.beginTransaction()
-                    .replace(R.id.sign_up_container, SignUpEmailFragment())
+                    .replace(R.id.sign_up_container, GuestSignUpEmailFragment())
                     .addToBackStack(null)
                     .commit()
             }
 
             "password" -> {
                 supportFragmentManager.beginTransaction()
-                    .replace(R.id.sign_up_container, SignUpPwFragment())
+                    .replace(R.id.sign_up_container, GuestSignUpPwFragment())
                     .addToBackStack(null)
                     .commit()
             }

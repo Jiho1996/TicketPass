@@ -1,22 +1,22 @@
 <resources>
     <string name="app_name">TicketPass</string>
-        <string name="Description">QR코드 찍고\n쉽고 빠르게 입장하기</string>
-        <string name="host_login">주최자로 로그인</string>
-        <string name="att_login">참가자로 로그인</string>
-        <string name="email">이메일</string>
-        <string name="email_typing">이메일을 입력해주세요.</string>
-        <string name="password">패스워드</string>
-        <string name="password_typing">패스워드를 입력해주세요.</string>
-        <string name="password_verify">패스워드 확인</string>
-        <string name="not_yet_att">아직 가입하지 않으셨다면</string>
-        <string name="singup">회원가입하기</string>
-        <string name="signup_indent">회원가입 하기</string>
-        <string name="tick_pass"><b>Ticket</b> Pass</string>
-        <string name="next_Btn">다음으로</string>
-        <string name="verify">인증번호</string>
-        <string name="verify_input">인증번호를 입력해주세요.</string>
-        <string name="password_constraint">4~16자리</string>
-    <string name="guest_main">Ticket Pass</string>
+    <string name="Description">QR코드 찍고\n쉽고 빠르게 입장하기</string>
+    <string name="host_login">주최자로 로그인</string>
+    <string name="att_login">참가자로 로그인</string>
+    <string name="email">이메일</string>
+    <string name="email_typing">이메일을 입력해주세요.</string>
+    <string name="password">패스워드</string>
+    <string name="password_typing">패스워드를 입력해주세요.</string>
+    <string name="password_verify">패스워드 확인</string>
+    <string name="not_yet_att">아직 가입하지 않으셨다면</string>
+    <string name="singup">회원가입하기</string>
+    <string name="signup_indent">회원가입 하기</string>
+    <string name="tick_pass"><b>Ticket</b> Pass</string>
+    <string name="next_Btn">다음으로</string>
+    <string name="verify">인증번호</string>
+    <string name="verify_input">인증번호를 입력해주세요.</string>
+    <string name="password_constraint">4~16자리</string>
+    <string name="meta_ticket_pass">Ticket Pass</string>
     <string name="manage_entrance">입장 관리</string>
     <string name="scan_again">다시스캔</string>
     <string name="verify_entrance">입장확인</string>
@@ -39,4 +39,5 @@
     <string name="save_change">변경사항 저장하기</string>
     <string name="register">등록하기</string>
     <string name="edit_guest_list_text">아래 명단 수정하기 버튼을 터치하여\n참가자 명단을 수정해주세요.\n수정이 끝난 후 변경사항 저장하기 버튼을 터치해주세요</string>
+    <string name="meta_empty_ticket">아직 등록된 티켓이 없습니다.</string>
 </resources>

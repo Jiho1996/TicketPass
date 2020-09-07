@@ -6,7 +6,7 @@ import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_select_type.*
 import kr.com.ticketpass.R
 import kr.com.ticketpass.host.HostLoginActivity
-import kr.com.ticketpass.guest.LoginActivity
+import kr.com.ticketpass.guest.GuestLoginActivity
 
 
 class SelectTypeActivity : AppCompatActivity() {
@@ -15,7 +15,7 @@ class SelectTypeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_select_type)
 
         att_login_button.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
+            startActivity(Intent(this, GuestLoginActivity::class.java))
         }
         host_login_button.setOnClickListener {
             startActivity(Intent(this, HostLoginActivity::class.java))
