@@ -28,7 +28,7 @@ class LayoutTicket(context: Context, attrs: AttributeSet?) :
     private fun expandView(view: View) {
         view.measure(
             WindowManager.LayoutParams.MATCH_PARENT,
-            View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
+            WindowManager.LayoutParams.WRAP_CONTENT
         )
         val targetHeight: Int = view.getMeasuredHeight()
         // Older versions of android (pre API 21) cancel animations for views with a height of 0.
