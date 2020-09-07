@@ -11,6 +11,7 @@ data class TicketResponse (
         val seatClass: String,
         val isUsed: Boolean,
         val userName: String,
-        val userPhoneNumber: String
+        val userPhoneNumber: String,
+        var expanded: Boolean
     )
 }
