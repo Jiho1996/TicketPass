@@ -8,9 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import kr.com.ticketpass.databinding.FragmentHostEventInfoEventBinding
 import kr.com.ticketpass.util.toastUtil
+import kr.com.ticketpass.viewmodel.HostMainViewModel
 
 class HostEventInfoEventFragment : Fragment() {
-
+    private lateinit var viewModel: HostMainViewModel
     private lateinit var binding: FragmentHostEventInfoEventBinding
 
     companion object {
@@ -41,6 +42,8 @@ class HostEventInfoEventFragment : Fragment() {
                 activity?.toastUtil("행사 장소를 입력해주십시오.")
                 }
             else {
+                viewModel.name = binding.eventTitleEdittext.text.toString()
+                viewModel.place = binding.eventInfoInputPlace.text.toString()
                 (activity as HostEventManageActivity).navigatePwFragment()
             }
         }

@@ -14,20 +14,20 @@ import kotlinx.android.synthetic.main.fragment_host_event_info_time.*
 import kr.com.ticketpass.R
 import kr.com.ticketpass.databinding.FragmentHostEventInfoTimeBinding
 import kr.com.ticketpass.util.toastUtil
+import kr.com.ticketpass.viewmodel.HostMainViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
-
 class HostEventInfoTimeFragment : Fragment() {
-
+    private lateinit var viewModel: HostMainViewModel
     lateinit var viewModelFactory: ViewModelProvider.Factory
     private lateinit var binding: FragmentHostEventInfoTimeBinding
 
     var myDatePicker =
-        OnDateSetListener { view, year, month, dayOfMonth ->
-            myCalendar[Calendar.YEAR] = year
-            myCalendar[Calendar.MONTH] = month
-            myCalendar[Calendar.DAY_OF_MONTH] = dayOfMonth
+        DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+            myCalendar.set(Calendar.YEAR, year)
+            myCalendar.set(Calendar.MONTH, month)
+            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
             updateLabel()
         }
 
@@ -36,6 +36,7 @@ class HostEventInfoTimeFragment : Fragment() {
             return HostEventInfoTimeFragment()
         }
     }
+
     val myCalendar: Calendar = Calendar.getInstance()
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -58,7 +59,8 @@ class HostEventInfoTimeFragment : Fragment() {
             } else if (binding.eventInfoInputTime.text.toString().isBlank()) {
                 activity?.toastUtil("공연 시작 시각을 입력해주십시오.")
             } else {
-                (activity as HostEventManageActivity).navigatePwFragment()
+                viewModel.startTime = binding.entranceTimeEdittext.text.toString()
+                viewModel.enterTime = binding.eventInfoInputTime.text.toString()
             }
         }
 
@@ -68,45 +70,27 @@ class HostEventInfoTimeFragment : Fragment() {
             val minute = mcurrentTime[Calendar.MINUTE]
             val mTimePicker: TimePickerDialog
 
-            mTimePicker = TimePickerDialog(
-                getContext(),
-                TimePickerDialog.OnTimeSetListener { timePicker, selectedHour, selectedMinute ->
-                    var selectedHour = selectedHour
-                    var state = "AM"
-                    // 선택한 시간이 12를 넘을경우 "PM"으로 변경 및 -12시간하여 출력
-                    if (selectedHour > 12) {
-                        selectedHour -= 12
-                        state = "PM"
-                    }
-                    // EditText에 출력할 형식 지정
-                    binding.entranceTimeEdittext.setText(state + " " + selectedHour + ":" + selectedMinute)
-                },
-                hour,
-                minute,
-                false
-            ) // true의 경우 24시간 형식의 TimePicker 출현
-            mTimePicker.setTitle("Select Time")
-            mTimePicker.show()
-
-            getContext()?.let { it1 ->
+            context?.let { it ->
                 DatePickerDialog(
-                    it1,
+                    it,
                     myDatePicker,
-                    myCalendar[Calendar.YEAR],
-                    myCalendar[Calendar.MONTH],
-                    myCalendar[Calendar.DAY_OF_MONTH]
+                    myCalendar.get(Calendar.YEAR),
+                    myCalendar.get(Calendar.MONTH),
+                    myCalendar.get(Calendar.DAY_OF_MONTH)
                 ).show()
             }
-                }
-            }
-
-    private fun updateLabel() {
-        val myFormat = "yyyy/MM/dd" // 출력형식   2018/11/28
-        val sdf = SimpleDateFormat(myFormat, Locale.KOREA)
-        val et_date = binding.entranceTimeEdittext
-        et_date.setText(sdf.format(myCalendar.time))
+        }
     }
-}
+
+
+        private fun updateLabel() {
+            val myFormat = "yyyy/MM/dd" // 출력형식   2018/11/28
+            val sdf = SimpleDateFormat(myFormat, Locale.KOREA)
+            val et_date = binding.entranceTimeEdittext
+            et_date.setText(sdf.format(myCalendar.time))
+        }
+    }
+
 
 
 
