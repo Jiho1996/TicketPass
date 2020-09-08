@@ -1,8 +1,10 @@
 package kr.com.ticketpass.guest
 
 import android.R.attr.data
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -10,12 +12,11 @@ import kr.com.ticketpass.R
 import kr.com.ticketpass.databinding.ItemTicketListBinding
 import kr.com.ticketpass.model.TicketResponse
 
-
 class GuestMainAdapter(
+    val context: Context,
     val tickets: MutableList<TicketResponse.TicketInfo>,
     val recyclerView: RecyclerView
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private var expireSize = 0
     private var lastExpandedCardPosition = 0
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -41,21 +42,11 @@ class GuestMainAdapter(
             holder.expandableTicket.setExpanded(false)
         }
 
-        // unExpired -> 0, expired -> 1
-        if (position < expireSize) {
-            holder.bind(ticket, 0)
-        } else {
-            holder.bind(ticket, 1)
-        }
+        holder.bind(tickets[position])
     }
 
-    fun addUnExpiredList(tickets: MutableList<TicketResponse.TicketInfo>) {
-        expireSize = tickets.size
+    fun addList(tickets: MutableList<TicketResponse.TicketInfo>) {
         this.tickets.clear()
-        this.tickets.addAll(tickets)
-    }
-
-    fun addExpiredList(tickets: MutableList<TicketResponse.TicketInfo>) {
         this.tickets.addAll(tickets)
         notifyDataSetChanged()
     }
@@ -65,13 +56,11 @@ class GuestMainAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
         val expandableTicket: LayoutTicket = binding.expandTicketLayout
 
-        fun bind(ticket: TicketResponse.TicketInfo, type: Int) {
+        fun bind(ticket: TicketResponse.TicketInfo) {
             binding.apply {
                 binding.model = ticket
-                if (type == 0) {
-
-                } else {
-
+                if (ticket.isExpired) {
+                    binding.expandTopContainer.background = ContextCompat.getDrawable(context, R.color.colorGray66)
                 }
             }
 

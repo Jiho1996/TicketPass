@@ -7,11 +7,11 @@ data class TicketResponse (
 ) {
     data class TicketInfo (
         val id: String,
-        val concert: ConcertInfo,
         val seatClass: String,
         val isUsed: Boolean,
         val userName: String,
-        val userPhoneNumber: String,
-        var expanded: Boolean
+        val concert: ConcertInfo,
+        var expanded: Boolean,
+        var isExpired: Boolean
     )
 }

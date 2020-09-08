@@ -32,7 +32,7 @@ class GuestMainActivity: AppCompatActivity() {
     }
 
     private fun initRecyclerView() {
-        adapter = GuestMainAdapter(mutableListOf(), binding.guestMainList)
+        adapter = GuestMainAdapter(this, mutableListOf(), binding.guestMainList)
         binding.guestMainList.run {
             layoutManager = LinearLayoutManager(this@GuestMainActivity, RecyclerView.VERTICAL, false)
             adapter = this@GuestMainActivity.adapter
@@ -41,8 +41,7 @@ class GuestMainActivity: AppCompatActivity() {
 
     private fun setLivedataObserver() {
         viewModel.getTicketSuccess.observe(this, Observer {
-            adapter.addUnExpiredList(viewModel.unexpiredList as MutableList<TicketResponse.TicketInfo>)
-            adapter.addExpiredList(viewModel.expiredList as MutableList<TicketResponse.TicketInfo>)
+            adapter.addList(viewModel.allTicketList)
         })
     }
 }
