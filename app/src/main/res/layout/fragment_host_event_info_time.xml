@@ -38,15 +38,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="12dp"
             android:layout_marginEnd="24dp"
-            android:layout_marginRight="24dp"
             android:background="@drawable/edit_text_underline_white"
+            android:clickable="true"
+            android:focusable="false"
             android:fontFamily="@font/paybooc_medium"
             android:gravity="left|center_vertical"
             android:hint="@string/input_entrance_time"
-            android:maxLength="8"
             android:paddingStart="4dp"
             android:paddingLeft="4dp"
             android:paddingBottom="9dp"
@@ -54,6 +53,7 @@
             android:textColorHint="@color/colorWarm"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/entrance_time_text" />
 
@@ -91,24 +91,17 @@
                 android:id="@+id/event_info_input_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="32dp"
-                android:layout_marginEnd="110dp"
-                android:layout_marginRight="24dp"
                 android:background="@drawable/edit_text_underline_white"
                 android:fontFamily="@font/paybooc_medium"
                 android:gravity="left|center_vertical"
                 android:hint="@string/input_event_time"
-                android:maxLength="8"
+                android:inputType="datetime"
                 android:paddingStart="4dp"
                 android:paddingLeft="4dp"
                 android:paddingBottom="9dp"
                 android:textColor="@color/colorWarm"
                 android:textColorHint="@color/colorWarm"
                 android:textSize="18sp" />
-
-
-                android:textSize="12sp" />
-
         </RelativeLayout>
 
         <Button

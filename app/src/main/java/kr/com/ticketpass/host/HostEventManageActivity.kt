@@ -30,6 +30,6 @@ class HostEventManageActivity : AppCompatActivity() {
     override fun onBackPressed() {
         super.onBackPressed()
         supportFragmentManager.beginTransaction().remove(hostEventInfoTimeFragment).commit()
-       // navigateEventFragment()
+        navigateEventFragment()
     }
 }

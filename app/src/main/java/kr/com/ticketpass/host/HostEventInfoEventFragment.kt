@@ -11,8 +11,6 @@ import kr.com.ticketpass.util.toastUtil
 
 class HostEventInfoEventFragment : Fragment() {
 
-    lateinit var viewModelFactory: ViewModelProvider.Factory
-    //private lateinit var viewModel:
     private lateinit var binding: FragmentHostEventInfoEventBinding
 
     companion object {
@@ -37,10 +35,13 @@ class HostEventInfoEventFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.eventInfoNextButton.setOnClickListener {
-            if (binding.eventTitleEdittext.text.toString().isNotBlank()) {
+            if (binding.eventTitleEdittext.text.toString().isBlank() ) {
+                activity?.toastUtil("행사 이름을 입력해주십시오.")
+            } else if (binding.eventInfoInputPlace.text.toString().isBlank()){
+                activity?.toastUtil("행사 장소를 입력해주십시오.")
+                }
+            else {
                 (activity as HostEventManageActivity).navigatePwFragment()
-            } else {
-                activity?.toastUtil("행사 이름을 입력해주십시오")
             }
         }
 

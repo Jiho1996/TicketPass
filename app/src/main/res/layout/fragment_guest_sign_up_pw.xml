@@ -67,7 +67,7 @@
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_id_editText" />
+            app:layout_constraintTop_toBottomOf="@+id/guest_signup_password_verify" />
 
         <TextView
             android:id="@+id/guest_login_password_sub"
@@ -96,7 +96,7 @@
             android:layout_marginRight="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_password_text"
+            app:layout_constraintTop_toBottomOf="@+id/guest_login_password_sub"
             android:orientation="horizontal">
 
             <EditText
