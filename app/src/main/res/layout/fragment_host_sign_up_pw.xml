@@ -16,39 +16,13 @@
         android:layout_height="match_parent"
         android:background="@color/colorDark">
 
-        <RelativeLayout
-            android:id="@+id/host_sign_up_title"
-            android:layout_width="match_parent"
-            android:layout_height="66dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/main_constraintLayout">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:gravity="center"
-                android:text="@string/tick_pass"
-                android:textColor="@color/colorWhite"
-                android:textSize="18sp" />
-
-            <View
-                android:id="@+id/host_title_view"
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginTop="64dp"
-                android:background="@color/colorWarm">
-
-            </View>
-
-        </RelativeLayout>
 
         <TextView
             android:id="@+id/host_signup_password_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="32dp"
-            android:layout_marginTop="39dp"
+            android:layout_marginTop="40dp"
             android:layout_marginRight="32dp"
             android:fontFamily="@font/paybooc_medium"
             android:gravity="left"
@@ -56,7 +30,7 @@
             android:textColor="@color/colorWarm"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/host_sign_up_title" />
+            app:layout_constraintTop_toTopOf="@+id/main_constraintLayout" />
 
         <EditText
             android:id="@+id/host_signup_password"

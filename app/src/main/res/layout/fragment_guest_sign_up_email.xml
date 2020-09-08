@@ -94,6 +94,7 @@
                 android:gravity="left|center_vertical"
                 android:hint="@string/verify_input"
                 android:maxLength="8"
+                android:inputType="number"
                 android:paddingStart="4dp"
                 android:paddingLeft="4dp"
                 android:paddingBottom="9dp"

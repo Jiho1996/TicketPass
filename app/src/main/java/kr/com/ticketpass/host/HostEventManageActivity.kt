@@ -13,10 +13,10 @@ class HostEventManageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_host_event_info)
 
-        navigateEmailFragment()
+        navigateEventFragment()
     }
 
-    private fun navigateEmailFragment() {
+    private fun navigateEventFragment() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.event_info_container, hostEventInfoEventFragment)
             .addToBackStack(null)
@@ -24,12 +24,12 @@ class HostEventManageActivity : AppCompatActivity() {
     }
 
     fun navigatePwFragment() {
-        supportFragmentManager.beginTransaction().add(R.id.sign_up_container, hostEventInfoTimeFragment).commit()
+        supportFragmentManager.beginTransaction().add(R.id.event_info_container, hostEventInfoTimeFragment).commit()
     }
 
     override fun onBackPressed() {
         super.onBackPressed()
         supportFragmentManager.beginTransaction().remove(hostEventInfoTimeFragment).commit()
-        navigateEmailFragment()
+        navigateEventFragment()
     }
 }
