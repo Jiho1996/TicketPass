@@ -25,7 +25,7 @@ interface Api {
     fun postConcert(
         @Header("Authorization") authorization: String,
         @Body newConcertForm: NewConcertForm
-    ) : Single<ConcertInfo>
+    ) : Single<NewConcertForm>
 
     @PUT("/v1/concerts/{concertId}")
     fun putConcert(
