@@ -2,6 +2,7 @@ package kr.com.ticketpass.guest
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -14,6 +15,7 @@ import kr.com.ticketpass.databinding.ActivityLoginGuestBinding
 import kr.com.ticketpass.databinding.ActivityLoginHostBinding
 import kr.com.ticketpass.host.GuestSignupActivity
 import kr.com.ticketpass.host.HostSignUpActivity
+import kr.com.ticketpass.util.toastUtil
 import kr.com.ticketpass.viewmodel.LoginViewModel
 
 class GuestLoginActivity : AppCompatActivity() {
@@ -32,18 +34,22 @@ class GuestLoginActivity : AppCompatActivity() {
         binding.guestLoginSignup.setOnClickListener {
             startActivity(Intent(this, GuestSignupActivity::class.java))
         }
+    }
 
-        binding.guestLoginBtn.setOnClickListener {
-            Logger.d("hello")
+    fun onClickLogin(view: View) {
+        if (binding.guestLoginEmail.text.isNullOrEmpty()) {
+            this.toastUtil("이메일을 입력해주십시오")
+        } else if (binding.guestLoginPassword.text.isNullOrEmpty()) {
+            this.toastUtil("비밀번호를 입력해주십시오")
+        } else {
             /*viewModel.doLogin(
-                binding.guestLoginEmail.text.toString(),
-                binding.guestLoginPassword.text.toString(),
-                "PARTICIPANT"
-            )*/
+                    binding.guestLoginEmail.text.toString(),
+                    binding.guestLoginPassword.text.toString(),
+                    "PARTICIPANT"
+                )*/
             viewModel.doLogin(
                 "skfk0135@gmail.com",
-                "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08"
-                ,
+                "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
                 "PARTICIPANT"
             )
         }

@@ -1,12 +1,16 @@
 package kr.com.ticketpass.guest
 
 import android.content.Context
+import android.graphics.Bitmap
 import android.util.AttributeSet
 import android.view.View
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.Transformation
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.google.zxing.BarcodeFormat
+import com.google.zxing.MultiFormatWriter
+import com.journeyapps.barcodescanner.BarcodeEncoder
 
 class LayoutTicket(context: Context, attrs: AttributeSet?) :
     ConstraintLayout(context, attrs) {
@@ -76,5 +80,12 @@ class LayoutTicket(context: Context, attrs: AttributeSet?) :
         ) else a.duration =
             duration.toLong()
         view.startAnimation(a)
+    }
+
+    fun createQr(userId: String, ticketId: String): Bitmap? {
+        val data = "$userId $ticketId"
+        val multiFormatWriter = MultiFormatWriter()
+        val bitMatrix = multiFormatWriter.encode(data, BarcodeFormat.QR_CODE,200,200)
+        return BarcodeEncoder().createBitmap(bitMatrix)
     }
 }

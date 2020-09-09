@@ -18,8 +18,8 @@ interface Api {
 
     @POST("/v1/auth/send-email-code")
     fun sendEmailCode(
-        @Body email: String
-    ) : Single<Void>
+        @Body sendEmailCodeForm: SendEmailCodeForm
+    ) : Single<String>
 
     @POST("/v1/concerts")
     fun postConcert(

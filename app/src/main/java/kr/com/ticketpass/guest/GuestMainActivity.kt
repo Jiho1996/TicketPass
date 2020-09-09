@@ -8,6 +8,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.zxing.BarcodeFormat
+import com.google.zxing.MultiFormatReader
+import com.google.zxing.MultiFormatWriter
+import com.journeyapps.barcodescanner.BarcodeEncoder
 import kr.com.ticketpass.R
 import kr.com.ticketpass.databinding.ActivityGuestMainBinding
 import kr.com.ticketpass.model.TicketResponse
@@ -28,7 +32,6 @@ class GuestMainActivity: AppCompatActivity() {
         initRecyclerView()
         setLivedataObserver()
         viewModel.getTicketList()
-
     }
 
     private fun initRecyclerView() {

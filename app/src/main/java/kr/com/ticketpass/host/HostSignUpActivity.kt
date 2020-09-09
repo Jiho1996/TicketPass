@@ -10,15 +10,14 @@ import kr.com.ticketpass.viewmodel.SignupViewModel
 
 
 class HostSignUpActivity : AppCompatActivity() {
-    private val viewModel: SignupViewModel by lazy {
-        ViewModelProvider(this).get(SignupViewModel::class.java)
-    }
+    private lateinit var viewModel: SignupViewModel
 
     private lateinit var binding: ActivityDefaultSignupBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_default_signup)
+        viewModel = ViewModelProvider(this).get(SignupViewModel::class.java)
 
         changeFragment("email")
     }

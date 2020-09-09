@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelStoreOwner
 import kr.com.ticketpass.databinding.FragmentGuestSignUpPwBinding
 import kr.com.ticketpass.viewmodel.SignupViewModel
 import kr.com.ticketpass.util.isValidatePasswordAndRePassword
@@ -20,7 +22,7 @@ class GuestSignUpPwFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProvider(this).get(SignupViewModel::class.java)
+        viewModel = ViewModelProvider(activity as ViewModelStoreOwner).get(SignupViewModel::class.java)
         binding = FragmentGuestSignUpPwBinding.inflate(inflater, container, false)
         binding.viewModel = viewModel
 
@@ -34,6 +36,11 @@ class GuestSignUpPwFragment : Fragment() {
                 activity?.toastUtil("패스워드가 적절하지 않거나 일치하지 않습니다.")
             }
         }
+
+        viewModel.signupSuccess.observe(this, Observer {
+            activity?.finish()
+            activity?.finishAffinity()
+        })
 
         return binding.root
     }

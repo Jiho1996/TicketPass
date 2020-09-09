@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelStoreOwner
 import kr.com.ticketpass.databinding.FragmentGuestSignUpEmailBinding
 import kr.com.ticketpass.host.GuestSignupActivity
 import kr.com.ticketpass.util.toastUtil
@@ -26,7 +28,7 @@ class GuestSignUpEmailFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProvider(this).get(SignupViewModel::class.java)
+        viewModel = ViewModelProvider(activity as ViewModelStoreOwner).get(SignupViewModel::class.java)
         binding = FragmentGuestSignUpEmailBinding.inflate(inflater, container, false)
         binding.viewModel = viewModel
 
@@ -47,6 +49,10 @@ class GuestSignUpEmailFragment : Fragment() {
                 activity?.toastUtil("인증번호를 입력해주십시오.")
             }
         }
+
+        viewModel.emailCodeSuccess.observe(this, Observer {
+            activity?.toastUtil("인증코드가 메일로 전송되었습니다")
+        })
 
         return binding.root
     }

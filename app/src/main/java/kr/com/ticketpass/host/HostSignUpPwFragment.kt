@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelStoreOwner
 import kr.com.ticketpass.R
 import kr.com.ticketpass.databinding.FragmentGuestSignUpPwBinding
 import kr.com.ticketpass.databinding.FragmentHostSignUpPwBinding
@@ -22,7 +23,7 @@ class HostSignUpPwFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProvider(this).get(SignupViewModel::class.java)
+        viewModel = ViewModelProvider(activity as ViewModelStoreOwner).get(SignupViewModel::class.java)
         binding = FragmentHostSignUpPwBinding.inflate(inflater, container, false)
         binding.viewModel = viewModel
 

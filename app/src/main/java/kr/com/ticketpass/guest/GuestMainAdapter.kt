@@ -1,16 +1,17 @@
 package kr.com.ticketpass.guest
 
-import android.R.attr.data
 import android.content.Context
+import android.content.res.ColorStateList
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import kr.com.ticketpass.R
 import kr.com.ticketpass.databinding.ItemTicketListBinding
 import kr.com.ticketpass.model.TicketResponse
+import kr.com.ticketpass.util.ConstValue
+import kr.com.ticketpass.util.SharedPreferenceManager
 
 class GuestMainAdapter(
     val context: Context,
@@ -59,9 +60,9 @@ class GuestMainAdapter(
         fun bind(ticket: TicketResponse.TicketInfo) {
             binding.apply {
                 binding.model = ticket
-                if (ticket.isExpired) {
-                    binding.expandTopContainer.background = ContextCompat.getDrawable(context, R.color.colorGray66)
-                }
+                binding.expandTicketQr.setImageBitmap(expandableTicket.createQr(
+                    ticket.id,
+                    SharedPreferenceManager.getStringPref(ConstValue.CONST_USER_ID)))
             }
 
             binding.root.setOnClickListener {
