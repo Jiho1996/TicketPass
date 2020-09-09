@@ -28,7 +28,7 @@
             app:srcCompat="@drawable/ic_logo_white" />
 
         <TextView
-            android:id="@+id/host_login_email_text"
+            android:id="@+id/host_login_email_sub"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="32dp"
@@ -43,7 +43,7 @@
             app:layout_constraintTop_toBottomOf="@id/host_login_image_logo" />
 
         <EditText
-            android:id="@+id/host_login_id_editText"
+            android:id="@+id/host_login_email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -62,7 +62,7 @@
             app:layout_constraintBottom_toTopOf="@+id/host_login_id_warning_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/host_login_email_text"
+            app:layout_constraintTop_toBottomOf="@+id/host_login_email_sub"
             android:layout_marginLeft="32dp"
             android:layout_marginRight="24dp"
             android:paddingLeft="4dp" />
@@ -78,7 +78,7 @@
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/host_login_id_editText" />
+            app:layout_constraintTop_toBottomOf="@+id/host_login_email" />
 
         <TextView
             android:id="@+id/host_login_password_text"
@@ -147,7 +147,7 @@
             android:layout_marginLeft="24dp" />
 
         <TextView
-            android:id="@+id/host_login_signup_text_host"
+            android:id="@+id/host_login_signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="190dp"
@@ -172,10 +172,11 @@
             android:textColor="@color/colorWhite"
             android:fontFamily="@font/paybooc_medium"
             android:textSize="15sp"
+            android:onClick="onClickLogin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="@id/main_constraintLayout"
-            app:layout_constraintTop_toBottomOf="@id/host_login_signup_text_host" />
+            app:layout_constraintTop_toBottomOf="@id/host_login_signup" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

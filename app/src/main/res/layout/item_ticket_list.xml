@@ -59,7 +59,7 @@
             android:id="@+id/expand_ticket_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorWarm"
+            android:background="@drawable/bg_ticket"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView">
@@ -100,10 +100,11 @@
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <FrameLayout
+                    <ImageView
                         android:id="@+id/expand_ticket_qr"
                         android:layout_width="0dp"
                         android:layout_height="248dp"
+                        android:background="@color/colorWhite"
                         app:layout_constraintTop_toBottomOf="@+id/expand_top_container"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent" />

@@ -23,9 +23,6 @@ class GuestMainViewModel : ViewModel() {
         //날짜 최신순으로 리스트 정렬
         val transFormat = SimpleDateFormat("yyyy-MM-dd HH:mm")
         allTicketList.addAll(list)
-        for (i in allTicketList) {
-            print(i.concert.startTime)
-        }
 
         Collections.sort(allTicketList, object : Comparator<TicketResponse.TicketInfo> {
             override fun compare(o1: TicketResponse.TicketInfo?, o2: TicketResponse.TicketInfo?): Int {
@@ -41,14 +38,6 @@ class GuestMainViewModel : ViewModel() {
                 }
             }
         })
-
-        for (i in allTicketList) {
-            print(i.concert.startTime)
-        }
-    }
-
-    fun isUselessTicket(list: List<Any>) {
-        //오늘보다 이전 날짜면 티켓 검은색 될 수 있게 처리
     }
 
     fun getTicketList() {

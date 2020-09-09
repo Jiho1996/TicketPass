@@ -169,6 +169,7 @@
             android:textColor="@color/colorDark"
             android:fontFamily="@font/paybooc_medium"
             android:textSize="15sp"
+            android:onClick="onClickLogin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="@id/main_constraintLayout"
