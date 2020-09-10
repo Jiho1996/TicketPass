@@ -1,4 +1,4 @@
-package kr.com.ticketpass.guest
+package kr.com.ticketpass.guest.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,14 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.orhanobut.logger.Logger
-import kotlinx.android.synthetic.main.activity_login_guest.*
-import kotlinx.android.synthetic.main.activity_login_host.*
 import kr.com.ticketpass.R
 import kr.com.ticketpass.databinding.ActivityLoginGuestBinding
-import kr.com.ticketpass.databinding.ActivityLoginHostBinding
-import kr.com.ticketpass.host.GuestSignupActivity
-import kr.com.ticketpass.host.HostSignUpActivity
+import kr.com.ticketpass.guest.GuestMainActivity
 import kr.com.ticketpass.util.toastUtil
 import kr.com.ticketpass.viewmodel.LoginViewModel
 

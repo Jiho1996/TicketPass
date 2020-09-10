@@ -40,4 +40,5 @@
     <string name="register">등록하기</string>
     <string name="edit_guest_list_text">아래 명단 수정하기 버튼을 터치하여\n참가자 명단을 수정해주세요.\n수정이 끝난 후 변경사항 저장하기 버튼을 터치해주세요</string>
     <string name="meta_empty_ticket">아직 등록된 티켓이 없습니다.</string>
+    <string name="meta_new_concert">새 행사 등록하기</string>
 </resources>

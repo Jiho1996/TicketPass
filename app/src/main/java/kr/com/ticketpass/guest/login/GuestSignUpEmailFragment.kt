@@ -1,4 +1,4 @@
-package kr.com.ticketpass.guest
+package kr.com.ticketpass.guest.login
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import kr.com.ticketpass.databinding.FragmentGuestSignUpEmailBinding
-import kr.com.ticketpass.host.GuestSignupActivity
 import kr.com.ticketpass.util.toastUtil
 import kr.com.ticketpass.viewmodel.SignupViewModel
 

@@ -22,11 +22,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".guest.GuestLoginActivity" />
+        <activity android:name=".guest.login.GuestLoginActivity" />
 
-        <activity android:name=".host.HostSignUpActivity" />
+        <activity android:name=".host.login.HostSignUpActivity" />
 
-        <activity android:name=".host.HostLoginActivity" />
+        <activity android:name=".host.login.HostLoginActivity" />
 
         <activity android:name=".hostmanage.QReaderActivity" >
 
@@ -39,7 +39,7 @@
         </activity>
         <activity android:name=".host.HostManageActivity">
         </activity>
-        <activity android:name=".host.GuestSignupActivity"/>
+        <activity android:name=".guest.login.GuestSignupActivity"/>
 
         <activity android:name=".guest.GuestMainActivity" >
         </activity>
