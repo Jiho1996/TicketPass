@@ -25,7 +25,7 @@ interface Api {
     fun postConcert(
         @Header("Authorization") authorization: String,
         @Body newConcertForm: NewConcertForm
-    ) : Single<ConcertInfo>
+    ) : Single<NewConcertForm>
 
     @PUT("/v1/concerts/{concertId}")
     fun putConcert(
@@ -42,20 +42,20 @@ interface Api {
     @GET("/v1/concerts/{concertId}")
     fun getConcert(
         @Header("Authorization") authorization: String,
-        @Path("concertId") concertId: Int
+        @Path("concertId") concertId: String
     ) : Single<ConcertInfo>
 
     @POST("/v1/concerts/{concertId}/sync-tickets")
     fun syncConcert(
         @Header("Authorization") authorization: String,
-        @Path("concertId") concertId: Int
+        @Path("spreadsheetId") spreadsheetId : String
     ) : Single<Void>
 
     @GET("/v1/users/{userId}/concerts")
     fun getUserConcert(
         @Header("Authorization") authorization: String,
-        @Query("limit") limit: Int,
-        @Query("offset") offset: Int,
+        @Query("limit") limit: Int?,
+        @Query("offset") offset: Int?,
         @Path("userId") userId: String
     ) : Single<List<ConcertInfo>>
 

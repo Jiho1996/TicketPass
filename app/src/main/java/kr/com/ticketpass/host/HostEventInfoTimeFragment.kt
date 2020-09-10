@@ -3,6 +3,7 @@ package kr.com.ticketpass.host
 import android.app.DatePickerDialog
 import android.app.DatePickerDialog.OnDateSetListener
 import android.app.TimePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -43,9 +44,8 @@ class HostEventInfoTimeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //  viewModel = ViewModelProvider(this).get(EventInfoViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(HostMainViewModel::class.java)
         binding = FragmentHostEventInfoTimeBinding.inflate(inflater, container, false)
-        //  binding.viewModel = viewModel
         return inflater.inflate(R.layout.fragment_host_event_info_time, container, false)
 
     }
@@ -61,29 +61,13 @@ class HostEventInfoTimeFragment : Fragment() {
             } else {
                 viewModel.startTime = binding.entranceTimeEdittext.text.toString()
                 viewModel.enterTime = binding.eventInfoInputTime.text.toString()
-            }
-        }
-
-        entrance_time_edittext.setOnClickListener {
-            val mcurrentTime = Calendar.getInstance()
-            val hour = mcurrentTime[Calendar.HOUR_OF_DAY]
-            val minute = mcurrentTime[Calendar.MINUTE]
-            val mTimePicker: TimePickerDialog
-
-            context?.let { it ->
-                DatePickerDialog(
-                    it,
-                    myDatePicker,
-                    myCalendar.get(Calendar.YEAR),
-                    myCalendar.get(Calendar.MONTH),
-                    myCalendar.get(Calendar.DAY_OF_MONTH)
-                ).show()
+                val intent : Intent = Intent(context, HostManageActivity::class.java)
+                startActivity(intent)
             }
         }
     }
 
-
-        private fun updateLabel() {
+    private fun updateLabel() {
             val myFormat = "yyyy/MM/dd" // 출력형식   2018/11/28
             val sdf = SimpleDateFormat(myFormat, Locale.KOREA)
             val et_date = binding.entranceTimeEdittext
