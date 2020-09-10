@@ -1,5 +1,6 @@
 package kr.com.ticketpass.viewmodel
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.orhanobut.logger.Logger
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -23,6 +24,7 @@ class HostMainViewModel : ViewModel() {
     lateinit var nextTicket: TicketResponse.TicketInfo
     var allTicketList: MutableList<TicketResponse.TicketInfo> = mutableListOf()
     val getTicketSuccess: SingleLiveEvent<Void> = SingleLiveEvent()
+    var isEmpty: MutableLiveData<Boolean> = MutableLiveData()
 
     fun ticketListSort(list: List<TicketResponse.TicketInfo>) {
         //날짜 최신순으로 리스트 정렬
@@ -43,10 +45,6 @@ class HostMainViewModel : ViewModel() {
                 }
             }
         })
-    }
-
-    fun createConcert(name : String, startTime : String, endTime : String, startDate : String) {
-      //  requestApi.postConcert(NewConcertForm())
     }
 
     fun getTicketList() {
@@ -75,6 +73,11 @@ class HostMainViewModel : ViewModel() {
                 nextTicket.isExpired = false
 
                 allTicketList.add(0, nextTicket)
+
+                if (allTicketList.size != 0) {
+                    isEmpty.value = true
+                }
+
                 getTicketSuccess.call()
             }, {
                 Logger.d(it.localizedMessage)

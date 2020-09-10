@@ -10,7 +10,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/bt_shape"
+        android:layout_marginBottom="12dp">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
@@ -66,14 +68,15 @@
             <TextView
                 android:id="@+id/host_expand_concert"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@color/colorWhite"
                 android:paddingVertical="12dp"
                 android:text="행사 관리"
                 android:textColor="@color/colorBlack22"
                 android:gravity="center"
-                android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/host_expand_enter"
                 app:layout_constraintTop_toTopOf="parent"
@@ -82,13 +85,14 @@
             <TextView
                 android:id="@+id/host_expand_enter"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@color/colorWhite"
                 android:paddingVertical="12dp"
                 android:text="입장 관리"
                 android:textColor="@color/colorBlack22"
                 android:gravity="center"
-                android:layout_marginRight="16dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
                 app:layout_constraintStart_toEndOf="@+id/host_expand_concert"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

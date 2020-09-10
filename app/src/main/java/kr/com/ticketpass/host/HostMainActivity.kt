@@ -1,5 +1,6 @@
 package kr.com.ticketpass.host
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kr.com.ticketpass.R
 import kr.com.ticketpass.databinding.ActivityHostMainBinding
+import kr.com.ticketpass.host.login.HostSignUpActivity
 import kr.com.ticketpass.viewmodel.HostMainViewModel
 
 class HostMainActivity : AppCompatActivity() {
@@ -22,6 +24,11 @@ class HostMainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_host_main)
+        binding.viewModel = viewModel
+
+        binding.hostMainAddBtn.setOnClickListener {
+            startActivity(Intent(this, HostEventManageActivity::class.java))
+        }
 
         initRecyclerView()
         setLivedataObserver()

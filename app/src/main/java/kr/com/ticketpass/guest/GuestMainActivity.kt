@@ -22,6 +22,7 @@ class GuestMainActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_guest_main)
+        binding.viewModel = viewModel
 
         initRecyclerView()
         setLivedataObserver()
