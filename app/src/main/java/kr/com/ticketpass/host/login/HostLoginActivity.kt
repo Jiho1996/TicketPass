@@ -1,4 +1,4 @@
-package kr.com.ticketpass.host
+package kr.com.ticketpass.host.login
 
 import kr.com.ticketpass.databinding.ActivityLoginHostBinding
 import android.content.Intent
@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import kr.com.ticketpass.R
+import kr.com.ticketpass.host.HostMainActivity
 import kr.com.ticketpass.util.toastUtil
 import kr.com.ticketpass.viewmodel.LoginViewModel
 

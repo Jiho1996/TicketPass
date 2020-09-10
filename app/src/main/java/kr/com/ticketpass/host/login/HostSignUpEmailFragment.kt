@@ -1,4 +1,4 @@
-package kr.com.ticketpass.host
+package kr.com.ticketpass.host.login
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import kr.com.ticketpass.databinding.FragmentHostSignUpEmailBinding
+import kr.com.ticketpass.guest.login.GuestSignupActivity
 import kr.com.ticketpass.util.toastUtil
 import kr.com.ticketpass.viewmodel.SignupViewModel
 

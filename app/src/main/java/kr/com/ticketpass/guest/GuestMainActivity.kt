@@ -1,6 +1,5 @@
 package kr.com.ticketpass.guest
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -8,13 +7,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.zxing.BarcodeFormat
-import com.google.zxing.MultiFormatReader
-import com.google.zxing.MultiFormatWriter
-import com.journeyapps.barcodescanner.BarcodeEncoder
 import kr.com.ticketpass.R
 import kr.com.ticketpass.databinding.ActivityGuestMainBinding
-import kr.com.ticketpass.model.TicketResponse
 import kr.com.ticketpass.viewmodel.GuestMainViewModel
 
 class GuestMainActivity: AppCompatActivity() {
