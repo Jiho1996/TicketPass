@@ -13,6 +13,7 @@ import kr.com.ticketpass.viewmodel.HostMainViewModel
 class HostEventInfoEventFragment : Fragment() {
     private lateinit var viewModel: HostMainViewModel
     private lateinit var binding: FragmentHostEventInfoEventBinding
+    var bundle = Bundle()
 
     companion object {
         fun newInstance(): HostEventInfoEventFragment {
@@ -20,15 +21,19 @@ class HostEventInfoEventFragment : Fragment() {
         }
     }
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-      //  viewModel = ViewModelProvider(this).get(EventInfoViewModel::class.java)
+        activity?.viewModelStore?.let {
+            viewModel = ViewModelProvider(
+                it,
+                ViewModelProvider.NewInstanceFactory()
+            ).get(HostMainViewModel::class.java)
+        }
         binding = FragmentHostEventInfoEventBinding.inflate(inflater, container, false)
-      //  binding.viewModel = viewModel
+        binding.viewModel = viewModel
         return binding.root
     }
 
@@ -36,17 +41,15 @@ class HostEventInfoEventFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.eventInfoNextButton.setOnClickListener {
-            if (binding.eventTitleEdittext.text.toString().isBlank() ) {
+            if (binding.eventTitleEdittext.text.toString().isBlank()) {
                 activity?.toastUtil("행사 이름을 입력해주십시오.")
-            } else if (binding.eventInfoInputPlace.text.toString().isBlank()){
+            } else if (binding.eventInfoInputPlace.text.toString().isBlank()) {
                 activity?.toastUtil("행사 장소를 입력해주십시오.")
-                }
-            else {
+            } else {
                 viewModel.name = binding.eventTitleEdittext.text.toString()
                 viewModel.place = binding.eventInfoInputPlace.text.toString()
                 (activity as HostEventManageActivity).navigatePwFragment()
             }
         }
-
-        }
     }
+}

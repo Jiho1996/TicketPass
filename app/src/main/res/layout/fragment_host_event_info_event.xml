@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="kr.com.ticketpass.viewmodel.SignupViewModel"/>
+            type="kr.com.ticketpass.viewmodel.HostMainViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
