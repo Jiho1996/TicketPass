@@ -55,7 +55,7 @@ class HostReservationActivity : AppCompatActivity(), TorchListener {
         binding.reserveReScan.setOnClickListener {
             val intentIntegrator = IntentIntegrator(this)
             intentIntegrator.setBeepEnabled(false) //바코드 인식시 소리
-            intentIntegrator.captureActivity = HostReservationActivity::class.java
+            //intentIntegrator.captureActivity = HostReservationActivity::class.java
             intentIntegrator.initiateScan()
         }
 

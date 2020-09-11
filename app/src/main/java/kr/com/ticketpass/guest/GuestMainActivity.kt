@@ -30,7 +30,9 @@ class GuestMainActivity: AppCompatActivity() {
     }
 
     private fun initRecyclerView() {
-        adapter = GuestMainAdapter(this, mutableListOf(), binding.guestMainList)
+        val random = Math.random()
+        val type = ((random*10) % 4).toInt()
+        adapter = GuestMainAdapter(this, mutableListOf(), binding.guestMainList, type)
         binding.guestMainList.run {
             layoutManager = LinearLayoutManager(this@GuestMainActivity, RecyclerView.VERTICAL, false)
             adapter = this@GuestMainActivity.adapter
