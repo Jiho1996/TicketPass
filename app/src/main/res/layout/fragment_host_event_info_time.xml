@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="kr.com.ticketpass.viewmodel.SignupViewModel"/>
+            type="kr.com.ticketpass.viewmodel.HostMainViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -41,9 +41,8 @@
             android:layout_marginTop="12dp"
             android:layout_marginEnd="24dp"
             android:background="@drawable/edit_text_underline_white"
-            android:clickable="true"
-            android:focusable="false"
             android:fontFamily="@font/paybooc_medium"
+            android:inputType="datetime"
             android:gravity="left|center_vertical"
             android:hint="@string/input_entrance_time"
             android:paddingStart="4dp"

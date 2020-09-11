@@ -34,7 +34,7 @@ class HostMainViewModel : ViewModel() {
     var place: String = ""
     val id: String = ""
     val spreadsheetId: String = ""
-   // val spreadsheetLink: URL = "https://spreadsheet.link"
+    val spreadsheetLink: String = ""
     val topImageLink: String = ""
     val bottomImageLink: String = ""
     lateinit var unexpiredList: List<TicketResponse.TicketInfo>
@@ -83,11 +83,12 @@ class HostMainViewModel : ViewModel() {
     fun postConcertSync() {
         requestApi.syncConcert(
             "Bearer " + SharedPreferenceManager.getToken(),
-            SharedPreferenceManager.getStringPref(ConstValue.CONST_SPREADSHEET_ID)
+            SharedPreferenceManager.getStringPref(ConstValue.CONST_SPREADSHEET_ID) // spreadsheet 코드 바
         )
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
+         //       SharedPreferenceManager.setPref(ConstValue.CONST_SPREADSHEET_ID, it.Concerts.id)
                 postConcertSyncSuccess.call()
             }, {
                 com.orhanobut.logger.Logger.d(it.localizedMessage)

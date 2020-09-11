@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.fragment_host_event_info_time.*
@@ -24,14 +25,6 @@ class HostEventInfoTimeFragment : Fragment() {
     lateinit var viewModelFactory: ViewModelProvider.Factory
     private lateinit var binding: FragmentHostEventInfoTimeBinding
 
-    var myDatePicker =
-        DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
-            myCalendar.set(Calendar.YEAR, year)
-            myCalendar.set(Calendar.MONTH, month)
-            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-            updateLabel()
-        }
-
     companion object {
         fun newInstance(): HostEventInfoTimeFragment {
             return HostEventInfoTimeFragment()
@@ -44,10 +37,15 @@ class HostEventInfoTimeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProvider(this).get(HostMainViewModel::class.java)
-        binding = FragmentHostEventInfoTimeBinding.inflate(inflater, container, false)
-        return inflater.inflate(R.layout.fragment_host_event_info_time, container, false)
 
+        activity?.viewModelStore?.let {
+            viewModel = ViewModelProvider(
+                it,
+                ViewModelProvider.NewInstanceFactory()
+            ).get(HostMainViewModel::class.java)
+        }
+        binding = FragmentHostEventInfoTimeBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -61,19 +59,13 @@ class HostEventInfoTimeFragment : Fragment() {
             } else {
                 viewModel.startTime = binding.entranceTimeEdittext.text.toString()
                 viewModel.enterTime = binding.eventInfoInputTime.text.toString()
-                val intent : Intent = Intent(context, HostManageActivity::class.java)
+                viewModel.createConcert()
+                val intent = Intent(context, HostManageActivity::class.java)
                 startActivity(intent)
             }
         }
     }
-
-    private fun updateLabel() {
-            val myFormat = "yyyy/MM/dd" // 출력형식   2018/11/28
-            val sdf = SimpleDateFormat(myFormat, Locale.KOREA)
-            val et_date = binding.entranceTimeEdittext
-            et_date.setText(sdf.format(myCalendar.time))
-        }
-    }
+}
 
 
 

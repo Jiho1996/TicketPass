@@ -48,4 +48,5 @@ class HostMainActivity : AppCompatActivity() {
             adapter.addList(viewModel.allTicketList)
         })
     }
+
 }
