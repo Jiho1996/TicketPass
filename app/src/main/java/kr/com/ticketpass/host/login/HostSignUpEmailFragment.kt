@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import kr.com.ticketpass.databinding.FragmentHostSignUpEmailBinding
@@ -50,6 +51,10 @@ class HostSignUpEmailFragment : Fragment() {
                 activity?.toastUtil("인증번호를 입력해주십시오.")
             }
         }
+
+        viewModel.emailCodeSuccess.observe(viewLifecycleOwner, Observer {
+            activity?.toastUtil("인증코드가 메일로 전송되었습니다")
+        })
 
         return binding.root
     }

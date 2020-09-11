@@ -37,9 +37,8 @@ class GuestSignUpPwFragment : Fragment() {
             }
         }
 
-        viewModel.signupSuccess.observe(this, Observer {
+        viewModel.signupSuccess.observe(viewLifecycleOwner, Observer {
             activity?.finish()
-            activity?.finishAffinity()
         })
 
         return binding.root

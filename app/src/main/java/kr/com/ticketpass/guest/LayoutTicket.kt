@@ -11,6 +11,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.MultiFormatWriter
 import com.journeyapps.barcodescanner.BarcodeEncoder
+import kr.com.ticketpass.model.TicketResponse
 
 class LayoutTicket(context: Context, attrs: AttributeSet?) :
     ConstraintLayout(context, attrs) {
@@ -82,8 +83,8 @@ class LayoutTicket(context: Context, attrs: AttributeSet?) :
         view.startAnimation(a)
     }
 
-    fun createQr(userId: String, ticketId: String): Bitmap? {
-        val data = "$userId $ticketId"
+    fun createQr(userId: String, ticketId: String, seat: String): Bitmap? {
+        val data = "$userId $ticketId $seat"
         val multiFormatWriter = MultiFormatWriter()
         val bitMatrix = multiFormatWriter.encode(data, BarcodeFormat.QR_CODE,200,200)
         return BarcodeEncoder().createBitmap(bitMatrix)

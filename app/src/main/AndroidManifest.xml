@@ -3,6 +3,7 @@
     package="kr.com.ticketpass">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name=".TicketPassApplication"
@@ -28,7 +29,7 @@
 
         <activity android:name=".host.login.HostLoginActivity" />
 
-        <activity android:name=".hostmanage.QReaderActivity" >
+        <activity android:name=".host.HostReservationActivity" >
 
         </activity>
         <activity android:name=".host.HostEditGuestActivity">

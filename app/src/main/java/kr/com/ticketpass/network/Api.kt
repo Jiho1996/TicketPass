@@ -3,6 +3,7 @@ package kr.com.ticketpass.network
 import io.reactivex.Single
 import kr.com.ticketpass.model.*
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.*
 
 interface Api {
@@ -19,7 +20,7 @@ interface Api {
     @POST("/v1/auth/send-email-code")
     fun sendEmailCode(
         @Body sendEmailCodeForm: SendEmailCodeForm
-    ) : Single<String>
+    ) : Single<Response<String>>
 
     @POST("/v1/concerts")
     fun postConcert(

@@ -62,7 +62,9 @@ class GuestMainAdapter(
                 binding.model = ticket
                 binding.expandTicketQr.setImageBitmap(expandableTicket.createQr(
                     ticket.id,
-                    SharedPreferenceManager.getStringPref(ConstValue.CONST_USER_ID)))
+                    SharedPreferenceManager.getStringPref(ConstValue.CONST_USER_ID),
+                    ticket.seatClass
+                ))
             }
 
             binding.root.setOnClickListener {

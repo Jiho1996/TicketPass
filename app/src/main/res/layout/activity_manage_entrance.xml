@@ -1,144 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/manage_layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorDark">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/manage_title_layout"
+<layout>
+
+    <data>
+        <variable
+            name="model"
+            type="kr.com.ticketpass.model.TicketResponse.TicketInfo" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/manage_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="?actionBarSize"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorDark">
 
-        <TextView
-            android:id="@+id/manage_title_text"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/manage_title_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/paybooc_medium"
-            android:letterSpacing="-0.02"
-            android:text="@string/manage_entrance"
-            android:textColor="@color/colorWhite"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:minHeight="?actionBarSize"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/backImageView"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="12dp"
-            app:layout_constraintBottom_toBottomOf="@id/manage_title_text"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/manage_title_text"
-            app:srcCompat="@drawable/ic_dark_back" />
+            <TextView
+                android:id="@+id/manage_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/paybooc_medium"
+                android:letterSpacing="-0.02"
+                android:text="@string/manage_entrance"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
+            <ImageView
+                android:id="@+id/backImageView"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="12dp"
+                app:layout_constraintBottom_toBottomOf="@id/manage_title_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/manage_title_text"
+                app:srcCompat="@drawable/ic_dark_back" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.journeyapps.barcodescanner.DecoratedBarcodeView
+            android:id="@+id/db_qr"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="?actionBarSize"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:zxing_scanner_layout="@layout/view_qrcode" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/name_call_Layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/db_qr">
+
+            <TextView
+                android:id="@+id/qr_name_sub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text="@string/name"
+                android:textColor="@color/colorWhite"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/qr_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:text="@{model.userName}"
+                android:textColor="@color/colorWhite"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/qr_name_sub"/>
+
+            <TextView
+                android:id="@+id/phone_number_sub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/phone_num"
+                android:layout_marginLeft="126dp"
+                android:textColor="@color/colorWhite"
+                app:layout_constraintStart_toEndOf="@+id/qr_name_sub"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/phone_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="126dp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/colorWhite"
+                app:layout_constraintStart_toEndOf="@+id/qr_name_sub"
+                app:layout_constraintTop_toBottomOf="@+id/phone_number_sub"/>
+
+            <TextView
+                android:id="@+id/qr_seat_sub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text="@string/seat"
+                android:textColor="@color/colorWhite"
+                android:layout_marginTop="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/qr_name"/>
+
+            <TextView
+                android:id="@+id/qr_seat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:textColor="@color/colorWhite"
+                android:layout_marginTop="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/qr_seat_sub"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/login_layout"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="50dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@id/manage_layout"
+            app:layout_constraintTop_toBottomOf="@id/name_call_Layout">
+
+            <Button
+                android:id="@+id/reserve_re_scan"
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/bt_shape_dark"
+                android:fontFamily="@font/paybooc_medium"
+                android:text="@string/scan_again"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/reserve_submit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="32dp"
+                android:background="@drawable/bt_shape"
+                android:fontFamily="@font/paybooc_medium"
+                android:text="@string/verify_entrance"
+                android:textColor="@color/colorDark"
+                android:textSize="16sp" />
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.journeyapps.barcodescanner.DecoratedBarcodeView
-        android:id="@+id/db_qr"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_marginTop="?actionBarSize"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:zxing_scanner_layout="@layout/view_qrcode" />
-
-    <LinearLayout
-        android:id="@+id/name_call_Layout"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/db_qr">
-
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:text="@string/name"
-            android:fontFamily="@font/paybooc_medium"
-            android:layout_weight="1"/>
-        /*커스텀뷰로 textview넣기*/
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0" />
-
-        <TextView
-            android:id="@+id/phone_number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/paybooc_medium"
-            android:text="@string/phone_num" />
-        /*커스텀뷰로 textview넣기*/
-
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:id="@+id/seat_Layout"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/name_call_Layout" >
-
-        <TextView
-            android:id="@+id/seat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/paybooc_medium"
-            android:layout_marginStart="32dp"
-            android:text="@string/seat" />
-    </LinearLayout>
-    /*커스텀뷰로 textview넣기*/
-
-    <LinearLayout
-        android:id="@+id/login_layout"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="50dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="@id/manage_layout"
-        app:layout_constraintTop_toBottomOf="@id/seat_Layout">
-
-        <Button
-            android:id="@+id/again_scan_button"
-            android:layout_width="160dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/bt_shape_dark"
-            android:fontFamily="@font/paybooc_medium"
-            android:text="@string/scan_again"
-            android:textColor="@color/colorWhite"
-            android:textSize="16sp" />
-
-        <Button
-            android:id="@+id/host_login_button"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginRight="32dp"
-            android:background="@drawable/bt_shape"
-            android:fontFamily="@font/paybooc_medium"
-            android:text="@string/verify_entrance"
-            android:textColor="@color/colorDark"
-            android:textSize="16sp" />
-    </LinearLayout>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

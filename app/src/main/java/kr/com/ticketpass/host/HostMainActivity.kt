@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kr.com.ticketpass.R
 import kr.com.ticketpass.databinding.ActivityHostMainBinding
-import kr.com.ticketpass.host.login.HostSignUpActivity
 import kr.com.ticketpass.viewmodel.HostMainViewModel
 
 class HostMainActivity : AppCompatActivity() {
