@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import kr.com.ticketpass.R
 import kr.com.ticketpass.databinding.ActivityLoginGuestBinding
 import kr.com.ticketpass.guest.GuestMainActivity
+import kr.com.ticketpass.util.sha256
 import kr.com.ticketpass.util.toastUtil
 import kr.com.ticketpass.viewmodel.LoginViewModel
 
@@ -39,7 +40,7 @@ class GuestLoginActivity : AppCompatActivity() {
         } else {
             /*viewModel.doLogin(
                     binding.guestLoginEmail.text.toString(),
-                    binding.guestLoginPassword.text.toString(),
+                    binding.guestLoginPassword.text.toString().sha256(),
                     "PARTICIPANT"
                 )*/
             viewModel.doLogin(

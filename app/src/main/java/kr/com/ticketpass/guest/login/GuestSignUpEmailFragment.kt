@@ -1,6 +1,7 @@
 package kr.com.ticketpass.guest.login
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,6 +38,12 @@ class GuestSignUpEmailFragment : Fragment() {
             } else {
                 activity?.toastUtil("이메일을 입력해주십시오")
             }
+            binding.guestSignupEmailCodeRequest.isEnabled = false
+            Handler().postDelayed(object: Runnable {
+                override fun run() {
+                    binding.guestSignupEmailCodeRequest.isEnabled = true
+                }
+            }, 5000)
         }
 
         binding.guestSignupNextBtn.setOnClickListener {
@@ -49,8 +56,12 @@ class GuestSignUpEmailFragment : Fragment() {
             }
         }
 
-        viewModel.emailCodeSuccess.observe(this, Observer {
+        viewModel.emailCodeSuccess.observe(viewLifecycleOwner, Observer {
             activity?.toastUtil("인증코드가 메일로 전송되었습니다")
+        })
+
+        viewModel.emailError.observe(viewLifecycleOwner, Observer {
+            activity?.toastUtil("이메일 형식이 아니거나 이미 코드를 발송했습니다")
         })
 
         return binding.root

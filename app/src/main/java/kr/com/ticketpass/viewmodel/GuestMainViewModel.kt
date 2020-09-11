@@ -21,6 +21,10 @@ class GuestMainViewModel : ViewModel() {
     val getTicketSuccess: SingleLiveEvent<Void> = SingleLiveEvent()
     var isEmpty: MutableLiveData<Boolean> = MutableLiveData()
 
+    init {
+        isEmpty.value = false
+    }
+
     fun ticketListSort(list: List<TicketResponse.TicketInfo>) {
         //날짜 최신순으로 리스트 정렬
         val transFormat = SimpleDateFormat("yyyy-MM-dd HH:mm")
@@ -52,22 +56,28 @@ class GuestMainViewModel : ViewModel() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                unexpiredList = it.unexpiredTickets
-                unexpiredList.map {
-                    it.isExpired = false
+                if (it.unexpiredTickets.isNotEmpty()) {
+                    unexpiredList = it.unexpiredTickets
+                    unexpiredList.map {
+                        it.isExpired = false
+                    }
+                    ticketListSort(unexpiredList)
                 }
-                ticketListSort(unexpiredList)
 
-                expiredList = it.expiredTickets
-                expiredList.map {
-                    it.isExpired = true
+                if (it.expiredTickets.isNotEmpty()) {
+                    expiredList = it.expiredTickets
+                    expiredList.map {
+                        it.isExpired = true
+                    }
+                    ticketListSort(expiredList)
                 }
-                ticketListSort(expiredList)
 
-                nextTicket = it.nextTicket
-                nextTicket.isExpired = false
+                if(it.nextTicket != null) {
+                    nextTicket = it.nextTicket
+                    nextTicket.isExpired = false
 
-                allTicketList.add(0, nextTicket)
+                    allTicketList.add(0, nextTicket)
+                }
 
                 if (allTicketList.size != 0) {
                     isEmpty.value = true

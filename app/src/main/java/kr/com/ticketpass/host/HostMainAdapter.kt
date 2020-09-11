@@ -1,6 +1,5 @@
 package kr.com.ticketpass.host
 
-import kr.com.ticketpass.guest.LayoutTicket
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -10,7 +9,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import kr.com.ticketpass.R
 import kr.com.ticketpass.databinding.ItemTicketHostBinding
-import kr.com.ticketpass.hostmanage.QReaderActivity
 import kr.com.ticketpass.model.TicketResponse
 
 class HostMainAdapter(
@@ -67,7 +65,8 @@ class HostMainAdapter(
             }
 
             binding.hostExpandEnter.setOnClickListener {
-                context.startActivity(Intent(context, QReaderActivity::class.java))
+                val intent = Intent(context, HostReservationActivity::class.java)
+                context.startActivity(intent)
             }
 
             binding.root.setOnClickListener {

@@ -41,12 +41,10 @@ class SignupViewModel: ViewModel() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                emailCodeSuccess.call()
+                emailError.call()
             }, {
+                emailCodeSuccess.call()
                 com.orhanobut.logger.Logger.d(it.localizedMessage)
             })
-    }
-    fun nextButtonClicked(){
-        nextButtonClicked.call()
     }
 }

@@ -1,5 +1,7 @@
 package kr.com.ticketpass.model
 
+import java.io.Serializable
+
 data class TicketResponse (
     val unexpiredTickets: List<TicketInfo>,
     val expiredTickets: List<TicketInfo>,

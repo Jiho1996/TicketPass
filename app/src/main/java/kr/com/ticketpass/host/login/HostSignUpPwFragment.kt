@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import kr.com.ticketpass.databinding.FragmentHostSignUpPwBinding
@@ -36,6 +37,10 @@ class HostSignUpPwFragment : Fragment() {
                 activity?.toastUtil("패스워드가 적절하지 않거나 일치하지 않습니다.")
             }
         }
+
+        viewModel.signupSuccess.observe(viewLifecycleOwner, Observer {
+            activity?.finish()
+        })
 
         return binding.root
 

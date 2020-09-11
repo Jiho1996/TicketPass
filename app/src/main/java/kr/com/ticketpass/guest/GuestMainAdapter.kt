@@ -2,21 +2,28 @@ package kr.com.ticketpass.guest
 
 import android.content.Context
 import android.content.res.ColorStateList
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
+import com.squareup.picasso.Target
 import kr.com.ticketpass.R
 import kr.com.ticketpass.databinding.ItemTicketListBinding
 import kr.com.ticketpass.model.TicketResponse
 import kr.com.ticketpass.util.ConstValue
 import kr.com.ticketpass.util.SharedPreferenceManager
+import java.lang.Exception
 
 class GuestMainAdapter(
     val context: Context,
     val tickets: MutableList<TicketResponse.TicketInfo>,
-    val recyclerView: RecyclerView
+    val recyclerView: RecyclerView,
+    val pictureType: Int
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var lastExpandedCardPosition = 0
 
@@ -60,10 +67,16 @@ class GuestMainAdapter(
         fun bind(ticket: TicketResponse.TicketInfo) {
             binding.apply {
                 binding.model = ticket
-                binding.expandTicketQr.setImageBitmap(expandableTicket.createQr(
-                    ticket.id,
-                    SharedPreferenceManager.getStringPref(ConstValue.CONST_USER_ID)))
+                binding.expandTicketQr.setImageBitmap(
+                    expandableTicket.createQr(
+                        ticket.id,
+                        SharedPreferenceManager.getStringPref(ConstValue.CONST_USER_ID),
+                        ticket.seatClass
+                    )
+                )
             }
+
+            setImageBackground()
 
             binding.root.setOnClickListener {
                 if (expandableTicket.isExpanded()) {
@@ -94,6 +107,51 @@ class GuestMainAdapter(
                     lastExpandedCardPosition = adapterPosition
                 }
             }
+        }
+
+        fun setImageBackground() {
+            when (pictureType) {
+                0 ->
+                    picassoSet(R.drawable.bg_1_top, R.drawable.bg_1_bottom)
+                1 ->
+                    picassoSet(R.drawable.bg_2_top, R.drawable.bg_2_bottom)
+                2 ->
+                    picassoSet(R.drawable.bg_3_top, R.drawable.bg_3_bottom)
+                3 ->
+                    picassoSet(R.drawable.bg_4_top, R.drawable.bg_4_bottom)
+            }
+        }
+
+        fun picassoSet(top: Int, middle: Int) {
+            /*Picasso.get().load(top).resize(360, 400).centerInside().into(object : Target {
+                override fun onBitmapLoaded(bitmap: Bitmap?, from: Picasso.LoadedFrom?) {
+                    binding.unexpandTopContainer.background =
+                        BitmapDrawable(context.resources, bitmap)
+                }
+
+                override fun onBitmapFailed(e: Exception?, errorDrawable: Drawable?) {
+                }
+
+                override fun onPrepareLoad(placeHolderDrawable: Drawable?) {
+                }
+            })
+
+            Picasso.get().load(middle).resize(360, 400).centerInside().into(object : Target {
+                override fun onBitmapLoaded(bitmap: Bitmap?, from: Picasso.LoadedFrom?) {
+                    binding.expandTicketLayout.background =
+                        BitmapDrawable(context.resources, bitmap)
+                }
+
+                override fun onBitmapFailed(e: Exception?, errorDrawable: Drawable?) {
+                }
+
+                override fun onPrepareLoad(placeHolderDrawable: Drawable?) {
+                }
+            })*/
+
+            Picasso.get().load(top).fit().into(binding.guestTopImage)
+
+            Picasso.get().load(middle).fit().into(binding.guestBottomImage)
         }
     }
 }
