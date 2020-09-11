@@ -9,7 +9,7 @@ data class ConcertInfo (
     val enterTime: String,
     val place: String,
     val spreadsheetId: String,
-    val spreadsheetLink: URL,
+    val spreadsheetLink: String,
     val topImageLink: String,
     val bottomImageLink: String,
 )
