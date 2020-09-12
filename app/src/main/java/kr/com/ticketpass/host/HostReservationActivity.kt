@@ -31,6 +31,7 @@ class HostReservationActivity : AppCompatActivity(), TorchListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_manage_entrance)
+        binding.viewModel = viewModel
         barcodeView = findViewById(R.id.db_qr)
 
         manager = CaptureManager(this, barcodeView)
@@ -72,9 +73,10 @@ class HostReservationActivity : AppCompatActivity(), TorchListener {
             if (result.contents != null) {
                 this.toastUtil("contents: " + result.contents)
                 val string = result.contents.split(" ")
-                binding.qrName.text = string[0]
-                binding.qrSeat.text = string[2]
                 qrData = string[0] + " " + string[1]
+                val userId = string[0]
+                val ticketId = string[1]
+                viewModel.getTicketInfo(userId, ticketId)
             } else {
                 this.toastUtil("error!")
             }

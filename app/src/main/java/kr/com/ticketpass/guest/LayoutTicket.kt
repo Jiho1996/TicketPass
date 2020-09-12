@@ -83,8 +83,8 @@ class LayoutTicket(context: Context, attrs: AttributeSet?) :
         view.startAnimation(a)
     }
 
-    fun createQr(userId: String, ticketId: String, seat: String): Bitmap? {
-        val data = "$userId $ticketId $seat"
+    fun createQr(userId: String, ticketId: String): Bitmap? {
+        val data = "$userId $ticketId"
         val multiFormatWriter = MultiFormatWriter()
         val bitMatrix = multiFormatWriter.encode(data, BarcodeFormat.QR_CODE,200,200)
         return BarcodeEncoder().createBitmap(bitMatrix)

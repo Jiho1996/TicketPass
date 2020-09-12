@@ -35,7 +35,9 @@ class HostMainActivity : AppCompatActivity() {
     }
 
     private fun initRecyclerView() {
-        adapter = HostMainAdapter(this, mutableListOf(), binding.hostMainList)
+        val random = Math.random()
+        val type = ((random*10) % 4).toInt()
+        adapter = HostMainAdapter(this, mutableListOf(), binding.hostMainList, type)
         binding.hostMainList.run {
             layoutManager =
                 LinearLayoutManager(this@HostMainActivity, RecyclerView.VERTICAL, false)
