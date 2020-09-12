@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.zxing.integration.android.IntentIntegrator
 import com.journeyapps.barcodescanner.CaptureManager
@@ -42,15 +43,26 @@ class HostReservationActivity : AppCompatActivity() {
                 viewModel.useTicketQr(userId, qrData)
             }
         }
+
+        viewModel.ticketInfoQr.observe(this, Observer {
+            binding.qrName.text = it.userName
+            binding.qrSeat.text = it.seatClass
+            binding.phoneNumber.text = it.userPhoneNumber
+        })
+
+        viewModel.ticketQrSuccess.observe(this, Observer {
+            this.toastUtil("티켓 입장을 성공했습니다")
+            finish()
+        })
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
         if (result != null) {
             if (result.contents != null) {
-                this.toastUtil("contents: " + result.contents)
+                this.toastUtil("티켓을 인식했습니다")
                 val string = result.contents.split(" ")
-                qrData = string[0] + " " + string[1]
+                qrData = string[1] + " " + string[0]
                 userId = string[0]
                 val ticketId = string[1]
                 viewModel.getTicketInfo(userId, ticketId)
