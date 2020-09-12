@@ -80,5 +80,5 @@ interface Api {
         @Header("Authorization") authorization: String,
         @Path("userId") userId: String,
         @Path("ticketId") ticketId: String
-    ) : Single<TicketResponse.TicketInfo>
+    ) : Single<TicketResponse>
 }
