@@ -65,7 +65,9 @@ class HostMainAdapter(
             setImageBackground()
 
             binding.hostExpandConcert.setOnClickListener {
-                context.startActivity(Intent(context, HostManageActivity::class.java))
+                val intent = Intent(context, HostManageActivity::class.java)
+                intent.putExtra("ticket", ticket)
+                context.startActivity(intent)
             }
 
             binding.hostExpandEnter.setOnClickListener {

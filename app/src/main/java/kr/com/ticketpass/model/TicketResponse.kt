@@ -16,5 +16,5 @@ data class TicketResponse (
         val userPhoneNumber: String,
         var expanded: Boolean,
         var isExpired: Boolean
-    )
+    ): Serializable
 }
