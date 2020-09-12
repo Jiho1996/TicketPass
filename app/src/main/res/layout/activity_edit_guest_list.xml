@@ -1,118 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/manage_layout"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+    <variable
+        name="viewModel"
+        type="kr.com.ticketpass.viewmodel.HostMainViewModel" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+android:id="@+id/manage_layout"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/colorDark">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/edit_guest_title_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="?actionBarSize"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <TextView
+        android:id="@+id/edit_guest_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/paybooc_medium"
+        android:letterSpacing="-0.02"
+        android:text="@string/guest_list"
+        android:textColor="@color/colorWhite"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/backImageView"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="12dp"
+        app:layout_constraintBottom_toBottomOf="@id/edit_guest_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/edit_guest_text"
+        app:srcCompat="@drawable/ic_dark_back" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+<View
+    android:id="@+id/view"
+    android:layout_width="match_parent"
+    android:layout_height="2dp"
+    android:layout_marginTop="10dp"
+    android:background="@color/colorGray66"
+    app:layout_constraintTop_toBottomOf="@id/edit_guest_title_layout" />
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/guest_list_content_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorDark">
+    android:layout_marginTop="?actionBarSize">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/edit_guest_title_layout"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minHeight="?actionBarSize"
+        android:layout_marginTop="120dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guest_list_content_layout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_spread_sheet" />
 
-        <TextView
-            android:id="@+id/edit_guest_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/paybooc_medium"
-            android:letterSpacing="-0.02"
-            android:text="@string/guest_list"
-            android:textColor="@color/colorWhite"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:fontFamily="@font/paybooc_medium"
+        android:gravity="center"
+        android:lineSpacingExtra="5sp"
+        android:text="@string/edit_guest_list_text"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView" />
 
-        <ImageView
-            android:id="@+id/backImageView"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="12dp"
-            app:layout_constraintBottom_toBottomOf="@id/edit_guest_text"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/edit_guest_text"
-            app:srcCompat="@drawable/ic_dark_back" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <View
-        android:id="@+id/view"
+    <Button
+        android:id="@+id/insert_button"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/colorGray66"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/edit_guest_title_layout" />
+        android:layout_height="60dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/bt_shape_dark"
+        android:fontFamily="@font/paybooc_medium"
+        android:text="@string/insert_list"
+        android:textColor="@color/colorWhite"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/guest_list_content_layout"
+    <Button
+        android:id="@+id/insert_save_button"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-       android:layout_marginTop="?actionBarSize">
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="120dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/guest_list_content_layout"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_spread_sheet" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/edit_guest_list_text"
-            android:gravity="center"
-            android:textColor="@color/colorWhite"
-            android:layout_marginTop="34dp"
-            android:lineSpacingExtra="5sp"
-            android:fontFamily="@font/paybooc_medium"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageView" />
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:background="@drawable/bt_shape_dark"
-            android:text="@string/insert_list"
-            android:textColor="@color/colorWhite"
-            android:fontFamily="@font/paybooc_medium"
-            android:textSize="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="100dp"
-            app:layout_constraintTop_toBottomOf="@id/textView" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:background="@drawable/bt_shape"
-            android:text="@string/save_change"
-            android:fontFamily="@font/paybooc_medium"
-            android:textSize="16dp"
-            android:textColor="@color/colorDark"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/button" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="60dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/bt_shape"
+        android:fontFamily="@font/paybooc_medium"
+        android:text="@string/save_change"
+        android:textColor="@color/colorDark"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/insert_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout></layout>

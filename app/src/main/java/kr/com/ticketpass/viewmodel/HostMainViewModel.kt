@@ -2,6 +2,7 @@ package kr.com.ticketpass.viewmodel
 
 import android.annotation.SuppressLint
 import android.app.TaskStackBuilder.create
+import android.provider.Settings.Global.getString
 import android.renderscript.ScriptIntrinsic3DLUT.create
 import android.telecom.Call
 import android.util.Log.d
@@ -46,7 +47,7 @@ class HostMainViewModel : ViewModel() {
     val createSuccess: SingleLiveEvent<Void> = SingleLiveEvent()
     val getConcertInfoSuccess: SingleLiveEvent<Void> = SingleLiveEvent()
     val postConcertSyncSuccess: SingleLiveEvent<Void> = SingleLiveEvent()
-    val getConcertListSuccess : SingleLiveEvent<Void> = SingleLiveEvent()
+    val getConcertListSuccess: SingleLiveEvent<Void> = SingleLiveEvent()
 
     @SuppressLint("CheckResult")
     fun createConcert() {
@@ -75,44 +76,50 @@ class HostMainViewModel : ViewModel() {
                 getConcertInfoSuccess.call()
             }, {
                 com.orhanobut.logger.Logger.d(it.localizedMessage)
-            }
-
-            )
+            })
     }
+
     @SuppressLint("CheckResult")
     fun postConcertSync() {
         requestApi.syncConcert(
             "Bearer " + SharedPreferenceManager.getToken(),
-            SharedPreferenceManager.getStringPref(ConstValue.CONST_SPREADSHEET_ID) // spreadsheet 코드 바
+            SharedPreferenceManager.getStringPref(ConstValue.CONST_SPREADSHEET_ID)
         )
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-         //       SharedPreferenceManager.setPref(ConstValue.CONST_SPREADSHEET_ID, it.Concerts.id)
+                SharedPreferenceManager.setPref(ConstValue.CONST_SPREADSHEET_ID, "")
                 postConcertSyncSuccess.call()
             }, {
                 com.orhanobut.logger.Logger.d(it.localizedMessage)
             }
             )
     }
+
     @SuppressLint("CheckResult")
-    fun getConcertList(list: List<ConcertInfo>){
-        requestApi.getUserConcert("Bearer "+ SharedPreferenceManager.getToken(),10,3,id
-                )
+    fun getConcertList() {
+        requestApi.getUserConcert(
+            "Bearer " + SharedPreferenceManager.getToken(), 10, 3,
+            SharedPreferenceManager.getStringPref(ConstValue.CONST_USER_ID)
+        )
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 getConcertListSuccess.call()
-            },{
+            }, {
                 com.orhanobut.logger.Logger.d(it.localizedMessage)
             })
     }
+
     fun ticketListSort(list: List<TicketResponse.TicketInfo>) {
         //날짜 최신순으로 리스트 정렬
         val transFormat = SimpleDateFormat("yyyy-MM-dd HH:mm")
         allTicketList.addAll(list)
         Collections.sort(allTicketList, object : Comparator<TicketResponse.TicketInfo> {
-            override fun compare(o1: TicketResponse.TicketInfo?, o2: TicketResponse.TicketInfo?): Int {
+            override fun compare(
+                o1: TicketResponse.TicketInfo?,
+                o2: TicketResponse.TicketInfo?
+            ): Int {
                 val date1 = transFormat.parse(o1?.concert?.startTime)
                 val date2 = transFormat.parse(o2?.concert?.startTime)
                 if (date1 > date2) {
@@ -125,6 +132,7 @@ class HostMainViewModel : ViewModel() {
             }
         })
     }
+
     @SuppressLint("CheckResult")
     fun getTicketList() {
         requestApi.getTickets(

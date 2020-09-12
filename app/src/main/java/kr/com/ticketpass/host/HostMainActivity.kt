@@ -31,6 +31,7 @@ class HostMainActivity : AppCompatActivity() {
 
         initRecyclerView()
         setLivedataObserver()
+        viewModel.getConcertList()
         viewModel.getTicketList()
     }
 
