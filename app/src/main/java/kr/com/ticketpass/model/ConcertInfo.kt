@@ -1,7 +1,5 @@
 package kr.com.ticketpass.model
 
-import java.net.URL
-
 data class ConcertInfo (
     val id: String,
     val name: String,

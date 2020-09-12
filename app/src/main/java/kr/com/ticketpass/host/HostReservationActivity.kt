@@ -17,12 +17,10 @@ import kr.com.ticketpass.databinding.ActivityManageEntranceBinding
 import kr.com.ticketpass.util.toastUtil
 import kr.com.ticketpass.viewmodel.HostReservationViewModel
 
-class HostReservationActivity : AppCompatActivity(), TorchListener {
-    private lateinit var manager: CaptureManager
-    private var isFlashOn = false // 플래시가 켜져 있는지
-    private lateinit var btFlash: Button
-    private lateinit var barcodeView: DecoratedBarcodeView
+class HostReservationActivity : AppCompatActivity() {
     private lateinit var binding: ActivityManageEntranceBinding
+    private var userId = ""
+
     private val viewModel: HostReservationViewModel by lazy {
         ViewModelProvider(this).get(HostReservationViewModel::class.java)
     }
@@ -32,37 +30,16 @@ class HostReservationActivity : AppCompatActivity(), TorchListener {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_manage_entrance)
         binding.viewModel = viewModel
-        barcodeView = findViewById(R.id.db_qr)
 
-        manager = CaptureManager(this, barcodeView)
-        manager.initializeFromIntent(intent, savedInstanceState)
-        manager.decode()
-
-        btFlash = findViewById(R.id.bt_flash)
-
-        val intentIntegrator = IntentIntegrator(this)
-        intentIntegrator.setBeepEnabled(false) //바코드 인식시 소리
-        //intentIntegrator.captureActivity = HostReservationActivity::class.java
-        intentIntegrator.initiateScan()
-
-        bt_flash.setOnClickListener(View.OnClickListener {
-            if (isFlashOn) {
-                barcodeView.setTorchOff()
-            } else {
-                barcodeView.setTorchOn()
-            }
-        })
-
-        binding.reserveReScan.setOnClickListener {
+        binding.layoutCamera.setOnClickListener {
             val intentIntegrator = IntentIntegrator(this)
             intentIntegrator.setBeepEnabled(false) //바코드 인식시 소리
-            //intentIntegrator.captureActivity = HostReservationActivity::class.java
             intentIntegrator.initiateScan()
         }
 
         binding.reserveSubmit.setOnClickListener {
             if (binding.qrName.text.isNotEmpty() && binding.qrSeat.text.isNotEmpty()) {
-                viewModel.useTicketQr(qrData)
+                viewModel.useTicketQr(userId, qrData)
             }
         }
     }
@@ -74,44 +51,14 @@ class HostReservationActivity : AppCompatActivity(), TorchListener {
                 this.toastUtil("contents: " + result.contents)
                 val string = result.contents.split(" ")
                 qrData = string[0] + " " + string[1]
-                val userId = string[0]
+                userId = string[0]
                 val ticketId = string[1]
                 viewModel.getTicketInfo(userId, ticketId)
-            } else {
+        } else {
                 this.toastUtil("error!")
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data)
         }
-    }
-
-    override fun onTorchOn() {
-        btFlash.text = "플래시끄기"
-        isFlashOn = true
-    }
-
-    override fun onTorchOff() {
-        btFlash.text = "플래시켜기"
-        isFlashOn = false
-    }
-
-    override fun onResume() {
-        super.onResume()
-        manager.onResume()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        manager.onPause()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        manager.onDestroy()
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        manager.onSaveInstanceState(outState)
     }
 }
