@@ -8,7 +8,6 @@ import io.reactivex.schedulers.Schedulers
 import kr.com.ticketpass.model.TicketResponse
 import kr.com.ticketpass.network.requestApi
 import kr.com.ticketpass.util.AES256Cipher
-import kr.com.ticketpass.util.ConstValue
 import kr.com.ticketpass.util.SharedPreferenceManager
 import kr.com.ticketpass.util.SingleLiveEvent
 
@@ -17,7 +16,7 @@ class HostReservationViewModel: ViewModel() {
     var ticketInfoQr: MutableLiveData<TicketResponse.TicketInfo> = MutableLiveData()
 
     fun useTicketQr(userId: String, ticketData: String) {
-        val aes = aes256.instance
+        val aes = AES256Cipher.instance
         requestApi.postTickets(
             "Bearer " + SharedPreferenceManager.getToken(),
             userId,
