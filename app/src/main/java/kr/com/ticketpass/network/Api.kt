@@ -72,7 +72,7 @@ interface Api {
     fun postTickets(
         @Header("Authorization") authorization: String,
         @Path("userId") userId: String,
-        @Body qrData: String
+        @Body qrData: QrForm
     ) : Single<TicketResponse.TicketInfo>
 
     @GET("/v1/users/{userId}/tickets/{ticketId}")
@@ -80,5 +80,5 @@ interface Api {
         @Header("Authorization") authorization: String,
         @Path("userId") userId: String,
         @Path("ticketId") ticketId: String
-    ) : Single<TicketResponse>
+    ) : Single<TicketForm>
 }

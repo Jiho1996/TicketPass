@@ -5,9 +5,10 @@ import androidx.lifecycle.ViewModel
 import com.orhanobut.logger.Logger
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import kr.com.ticketpass.model.QrForm
 import kr.com.ticketpass.model.TicketResponse
 import kr.com.ticketpass.network.requestApi
-import kr.com.ticketpass.util.AES256Cipher
+import kr.com.ticketpass.util.AES256Util
 import kr.com.ticketpass.util.SharedPreferenceManager
 import kr.com.ticketpass.util.SingleLiveEvent
 
@@ -16,11 +17,10 @@ class HostReservationViewModel: ViewModel() {
     var ticketInfoQr: MutableLiveData<TicketResponse.TicketInfo> = MutableLiveData()
 
     fun useTicketQr(userId: String, ticketData: String) {
-        val aes = AES256Cipher.instance
         requestApi.postTickets(
             "Bearer " + SharedPreferenceManager.getToken(),
             userId,
-            ticketData
+            QrForm(ticketData)
         )
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -40,7 +40,8 @@ class HostReservationViewModel: ViewModel() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                ticketInfoQr.value = it
+                ticketInfoQr.value = it.ticket
+                Logger.d(ticketInfoQr.value!!.userName)
             }, {
                 Logger.d(it.localizedMessage)
             })
