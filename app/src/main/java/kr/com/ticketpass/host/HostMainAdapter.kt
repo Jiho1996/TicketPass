@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import kr.com.ticketpass.R
 import kr.com.ticketpass.databinding.ItemTicketHostBinding
 import kr.com.ticketpass.model.TicketResponse
@@ -14,7 +15,8 @@ import kr.com.ticketpass.model.TicketResponse
 class HostMainAdapter(
     val context: Context,
     val tickets: MutableList<TicketResponse.TicketInfo>,
-    val recyclerView: RecyclerView
+    val recyclerView: RecyclerView,
+    val pictureType: Int
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var lastExpandedCardPosition = 0
 
@@ -60,6 +62,8 @@ class HostMainAdapter(
                 binding.model = ticket
             }
 
+            setImageBackground()
+
             binding.hostExpandConcert.setOnClickListener {
                 context.startActivity(Intent(context, HostManageActivity::class.java))
             }
@@ -98,6 +102,23 @@ class HostMainAdapter(
                     lastExpandedCardPosition = adapterPosition
                 }
             }
+        }
+
+        fun setImageBackground() {
+            when (pictureType) {
+                0 ->
+                    picassoSet(R.drawable.bg_1_bottom)
+                1 ->
+                    picassoSet(R.drawable.bg_2_bottom)
+                2 ->
+                    picassoSet(R.drawable.bg_3_bottom)
+                3 ->
+                    picassoSet(R.drawable.bg_4_bottom)
+            }
+        }
+
+        fun picassoSet(middle: Int) {
+            Picasso.get().load(middle).resize(360,100).centerCrop().into(binding.hostBg)
         }
     }
 }

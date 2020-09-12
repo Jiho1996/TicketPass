@@ -70,8 +70,7 @@ class GuestMainAdapter(
                 binding.expandTicketQr.setImageBitmap(
                     expandableTicket.createQr(
                         ticket.id,
-                        SharedPreferenceManager.getStringPref(ConstValue.CONST_USER_ID),
-                        ticket.seatClass
+                        SharedPreferenceManager.getStringPref(ConstValue.CONST_USER_ID)
                     )
                 )
             }
@@ -123,32 +122,6 @@ class GuestMainAdapter(
         }
 
         fun picassoSet(top: Int, middle: Int) {
-            /*Picasso.get().load(top).resize(360, 400).centerInside().into(object : Target {
-                override fun onBitmapLoaded(bitmap: Bitmap?, from: Picasso.LoadedFrom?) {
-                    binding.unexpandTopContainer.background =
-                        BitmapDrawable(context.resources, bitmap)
-                }
-
-                override fun onBitmapFailed(e: Exception?, errorDrawable: Drawable?) {
-                }
-
-                override fun onPrepareLoad(placeHolderDrawable: Drawable?) {
-                }
-            })
-
-            Picasso.get().load(middle).resize(360, 400).centerInside().into(object : Target {
-                override fun onBitmapLoaded(bitmap: Bitmap?, from: Picasso.LoadedFrom?) {
-                    binding.expandTicketLayout.background =
-                        BitmapDrawable(context.resources, bitmap)
-                }
-
-                override fun onBitmapFailed(e: Exception?, errorDrawable: Drawable?) {
-                }
-
-                override fun onPrepareLoad(placeHolderDrawable: Drawable?) {
-                }
-            })*/
-
             Picasso.get().load(top).fit().into(binding.guestTopImage)
 
             Picasso.get().load(middle).fit().into(binding.guestBottomImage)

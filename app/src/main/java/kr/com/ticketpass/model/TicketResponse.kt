@@ -13,6 +13,7 @@ data class TicketResponse (
         val isUsed: Boolean,
         val userName: String,
         val concert: ConcertInfo,
+        val userPhoneNumber: String,
         var expanded: Boolean,
         var isExpired: Boolean
     )

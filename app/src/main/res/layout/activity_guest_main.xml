@@ -44,7 +44,7 @@
             android:text="@string/meta_empty_ticket"
             android:textColor="@color/colorBlack22"
             android:textSize="12sp"
-            android:visibility="@{viewModel.isEmpty ? View.GONE : View.VISIBLE}"
+            android:visibility="@{viewModel.isEmpty ? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
