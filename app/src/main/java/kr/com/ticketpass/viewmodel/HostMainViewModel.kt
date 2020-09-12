@@ -99,8 +99,11 @@ class HostMainViewModel : ViewModel() {
     @SuppressLint("CheckResult")
     fun getConcertList() {
         requestApi.getUserConcert(
-            "Bearer " + SharedPreferenceManager.getToken(), 10, 3,
-            SharedPreferenceManager.getStringPref(ConstValue.CONST_USER_ID)
+            "Bearer " + SharedPreferenceManager.getToken(),
+            SharedPreferenceManager.getStringPref(ConstValue.CONST_USER_ID),
+            10,
+            3,
+
         )
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

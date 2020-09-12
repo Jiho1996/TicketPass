@@ -32,6 +32,7 @@ class HostReservationViewModel: ViewModel() {
     }
 
     fun getTicketInfo(userId: String, ticketId: String) {
+        Logger.d(SharedPreferenceManager.getToken())
         requestApi.getTicketQr(
             "Bearer " + SharedPreferenceManager.getToken(),
             ticketId,

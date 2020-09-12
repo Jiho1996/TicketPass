@@ -55,9 +55,9 @@ interface Api {
     @GET("/v1/users/{userId}/concerts")
     fun getUserConcert(
         @Header("Authorization") authorization: String,
+        @Path("userId") userId: String,
         @Query("limit") limit: Int?,
-        @Query("offset") offset: Int?,
-        @Path("userId") userId: String
+        @Query("offset") offset: Int?
     ) : Single<List<ConcertInfo>>
 
     @GET("/v1/users/{userId}/tickets")
