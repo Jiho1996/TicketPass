@@ -2,12 +2,14 @@ package kr.com.ticketpass.viewmodel
 
 import android.annotation.SuppressLint
 import android.app.TaskStackBuilder.create
+import android.content.Intent
 import android.provider.Settings.Global.getString
 import android.renderscript.ScriptIntrinsic3DLUT.create
 import android.telecom.Call
 import android.util.Log.d
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.orhanobut.logger.Logger.d
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -49,6 +51,12 @@ class HostMainViewModel : ViewModel() {
     val postConcertSyncSuccess: SingleLiveEvent<Void> = SingleLiveEvent()
     val getConcertListSuccess: SingleLiveEvent<Void> = SingleLiveEvent()
 
+    var asdd:String = ""
+
+    fun setString(asfd: String) {
+        asdd = asfd
+    }
+
     @SuppressLint("CheckResult")
     fun createConcert() {
         requestApi.postConcert(
@@ -81,14 +89,14 @@ class HostMainViewModel : ViewModel() {
 
     @SuppressLint("CheckResult")
     fun postConcertSync() {
+
         requestApi.syncConcert(
             "Bearer " + SharedPreferenceManager.getToken(),
-            SharedPreferenceManager.getStringPref(ConstValue.CONST_SPREADSHEET_ID)
+            asdd
         )
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                SharedPreferenceManager.setPref(ConstValue.CONST_SPREADSHEET_ID, "")
                 postConcertSyncSuccess.call()
             }, {
                 com.orhanobut.logger.Logger.d(it.localizedMessage)

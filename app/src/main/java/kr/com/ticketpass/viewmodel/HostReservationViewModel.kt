@@ -41,7 +41,7 @@ class HostReservationViewModel: ViewModel() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                ticketInfoQr.value = it
+                ticketInfoQr.value = it.ticket
             }, {
                 Logger.d(it.localizedMessage)
             })
