@@ -58,7 +58,7 @@ interface Api {
         @Path("userId") userId: String,
         @Query("limit") limit: Int?,
         @Query("offset") offset: Int?
-    ) : Single<List<ConcertInfo>>
+    ) : Single<ConcertListResponse>
 
     @GET("/v1/users/{userId}/tickets")
     fun getTickets(

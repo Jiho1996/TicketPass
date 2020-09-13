@@ -17,8 +17,6 @@ class SignupViewModel: ViewModel() {
     var password: String = ""
     var code: String = ""
     val emailError: SingleLiveEvent<Void> = SingleLiveEvent()
-    val passwordError: SingleLiveEvent<Void> = SingleLiveEvent()
-    val nextButtonClicked : SingleLiveEvent<Void> = SingleLiveEvent()
     val emailCodeSuccess: SingleLiveEvent<Void> = SingleLiveEvent()
     val signupSuccess: SingleLiveEvent<Void> = SingleLiveEvent()
 

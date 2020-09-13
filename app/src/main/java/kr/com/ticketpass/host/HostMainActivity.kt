@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kr.com.ticketpass.R
 import kr.com.ticketpass.databinding.ActivityHostMainBinding
+import kr.com.ticketpass.model.ConcertInfo
 import kr.com.ticketpass.viewmodel.HostMainViewModel
 
 class HostMainActivity : AppCompatActivity() {
@@ -32,7 +33,7 @@ class HostMainActivity : AppCompatActivity() {
         initRecyclerView()
         setLivedataObserver()
         viewModel.getConcertList()
-        viewModel.getTicketList()
+        //viewModel.getTicketList()
     }
 
     private fun initRecyclerView() {
@@ -47,8 +48,8 @@ class HostMainActivity : AppCompatActivity() {
     }
 
     private fun setLivedataObserver() {
-        viewModel.getTicketSuccess.observe(this, Observer {
-            adapter.addList(viewModel.allTicketList)
+        viewModel.getConcertListSuccess.observe(this, Observer {
+            adapter.addList(viewModel.concertList.value as MutableList<ConcertInfo>)
         })
     }
 

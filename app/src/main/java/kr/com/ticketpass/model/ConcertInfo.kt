@@ -12,4 +12,5 @@ data class ConcertInfo (
     val spreadsheetLink: String,
     val topImageLink: String,
     val bottomImageLink: String,
+    var expanded: Boolean
 ): Serializable

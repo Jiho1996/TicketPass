@@ -37,13 +37,11 @@ class HostMainViewModel : ViewModel() {
     var place: String = ""
     val id: String = ""
     var spreadsheetId: String = ""
-    val spreadsheetLink: String = ""
-    val topImageLink: String = ""
-    val bottomImageLink: String = ""
     lateinit var unexpiredList: List<TicketResponse.TicketInfo>
     lateinit var expiredList: List<TicketResponse.TicketInfo>
     lateinit var nextTicket: TicketResponse.TicketInfo
     var allTicketList: MutableList<TicketResponse.TicketInfo> = mutableListOf()
+    var concertList: MutableLiveData<List<ConcertInfo>> = MutableLiveData()
     val getTicketSuccess: SingleLiveEvent<Void> = SingleLiveEvent()
     var isEmpty: MutableLiveData<Boolean> = MutableLiveData()
     val createSuccess: SingleLiveEvent<Void> = SingleLiveEvent()
@@ -107,13 +105,13 @@ class HostMainViewModel : ViewModel() {
         requestApi.getUserConcert(
             "Bearer " + SharedPreferenceManager.getToken(),
             SharedPreferenceManager.getStringPref(ConstValue.CONST_USER_ID),
-            10,
-            3,
-
+            null,
+            null
         )
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
+                concertList.value = it.concerts
                 getConcertListSuccess.call()
             }, {
                 com.orhanobut.logger.Logger.d(it.localizedMessage)

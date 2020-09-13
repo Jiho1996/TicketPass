@@ -29,8 +29,7 @@ class HostSignUpPwFragment : Fragment() {
         binding.hostSignupSubmitBtn.setOnClickListener {
             if (isValidatePasswordAndRePassword(
                     binding.hostSignupPassword.text.toString(),
-                    binding.hostSignupPasswordVerify.text.toString())
-            ) {
+                    binding.hostSignupPasswordVerify.text.toString())) {
                 viewModel.password = binding.hostSignupPassword.text.toString()
                 viewModel.doSignup()
             } else {
