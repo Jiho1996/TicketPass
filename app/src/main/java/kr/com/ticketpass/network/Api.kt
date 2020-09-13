@@ -46,11 +46,11 @@ interface Api {
         @Path("concertId") concertId: String
     ) : Single<ConcertInfo>
 
-    @POST("/v1/concerts/{concertId}/sync-tickets")
+    @POST("/v1/sheet/{spreadsheetId}/sync")
     fun syncConcert(
         @Header("Authorization") authorization: String,
         @Path("spreadsheetId") spreadsheetId : String
-    ) : Single<Void>
+    ) : Single<String>
 
     @GET("/v1/users/{userId}/concerts")
     fun getUserConcert(

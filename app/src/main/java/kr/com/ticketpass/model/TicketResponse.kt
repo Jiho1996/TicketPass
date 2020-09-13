@@ -8,13 +8,13 @@ data class TicketResponse (
     val nextTicket: TicketInfo
 ) {
     data class TicketInfo (
-        val id: String,
-        val seatClass: String,
-        val isUsed: Boolean,
-        val userName: String,
-        val concert: ConcertInfo,
-        val userPhoneNumber: String,
-        var expanded: Boolean,
-        var isExpired: Boolean
+        val id: String = "",
+        val seatClass: String = "",
+        val isUsed: Boolean = true,
+        val userName: String = "",
+        val concert: ConcertInfo = ConcertInfo(),
+        val userPhoneNumber: String = "",
+        var expanded: Boolean = true,
+        var isExpired: Boolean = true
     ): Serializable
 }
