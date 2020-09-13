@@ -120,7 +120,7 @@ class HostMainAdapter(
         }
 
         fun picassoSet(middle: Int) {
-            Picasso.get().load(middle).resize(360,100).centerCrop().into(binding.hostBg)
+            Picasso.get().load(middle).fit().into(binding.hostBg)
         }
     }
 }

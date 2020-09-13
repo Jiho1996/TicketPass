@@ -12,7 +12,10 @@ class HostManageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_host_about_event)
 
-        val ticket = intent.getSerializableExtra("ticket") as TicketResponse.TicketInfo
+        val tempIntent = intent.getSerializableExtra("ticket")
+        if (tempIntent != null) {
+            val ticket = tempIntent as TicketResponse.TicketInfo
+        }
 
         event_info_button.setOnClickListener {
             startActivity(Intent(this, HostEventManageActivity::class.java))
