@@ -36,7 +36,7 @@ class HostMainViewModel : ViewModel() {
     var enterTime: String = ""
     var place: String = ""
     val id: String = ""
-    val spreadsheetId: String = ""
+    var spreadsheetId: String = ""
     val spreadsheetLink: String = ""
     val topImageLink: String = ""
     val bottomImageLink: String = ""
@@ -51,10 +51,8 @@ class HostMainViewModel : ViewModel() {
     val postConcertSyncSuccess: SingleLiveEvent<Void> = SingleLiveEvent()
     val getConcertListSuccess: SingleLiveEvent<Void> = SingleLiveEvent()
 
-    var asdd:String = ""
-
-    fun setString(asfd: String) {
-        asdd = asfd
+    fun setString(sp : String) {
+        spreadsheetId = sp
     }
 
     @SuppressLint("CheckResult")
@@ -92,7 +90,7 @@ class HostMainViewModel : ViewModel() {
 
         requestApi.syncConcert(
             "Bearer " + SharedPreferenceManager.getToken(),
-            asdd
+            spreadsheetId
         )
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
