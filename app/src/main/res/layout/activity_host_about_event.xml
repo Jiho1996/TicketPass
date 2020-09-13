@@ -108,57 +108,16 @@
             app:layout_constraintTop_toBottomOf="@id/view1">
 
             <ImageView
-                android:id="@+id/ticket_imageView"
+                android:id="@+id/guest_list_imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 app:layout_constraintEnd_toStartOf="@id/ticket_image_button"
                 android:layout_marginEnd="20dp"
                 app:layout_constraintTop_toTopOf="@id/ticket_image_button"
-                app:srcCompat="@drawable/ic_dark_image" />
-
-            <Button
-                android:id="@+id/ticket_image_button"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:background="@color/colorDark"
-                android:fontFamily="@font/paybooc_medium"
-                android:gravity="left|center"
-                android:textColor="@color/colorWhite"
-                android:text="@string/ticket_image"
-                android:layout_marginStart="72dp"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/ticket_image_layout"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-        <View
-            android:id="@+id/view2"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            android:background="@color/colorGray66"
-            app:layout_constraintTop_toBottomOf="@id/ticket_image_layout"
-            />
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/guest_list_layout"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/view2">
-
-            <ImageView
-                android:id="@+id/guest_list_imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                app:layout_constraintEnd_toStartOf="@id/guest_list_button"
-                android:layout_marginEnd="20dp"
-                app:layout_constraintTop_toTopOf="@id/guest_list_button"
                 app:srcCompat="@drawable/ic_dark_people" />
 
             <Button
-                android:id="@+id/guest_list_button"
+                android:id="@+id/ticket_image_button"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:background="@color/colorDark"
@@ -170,7 +129,7 @@
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/guest_list_layout"/>
+                app:layout_constraintTop_toTopOf="@id/ticket_image_layout"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
