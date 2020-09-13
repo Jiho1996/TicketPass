@@ -50,7 +50,7 @@ interface Api {
     fun syncConcert(
         @Header("Authorization") authorization: String,
         @Path("spreadsheetId") spreadsheetId : String
-    ) : Single<String>
+    ) : Single<Void>
 
     @GET("/v1/users/{userId}/concerts")
     fun getUserConcert(

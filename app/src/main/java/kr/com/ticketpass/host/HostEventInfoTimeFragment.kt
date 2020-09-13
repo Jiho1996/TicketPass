@@ -55,14 +55,19 @@ class HostEventInfoTimeFragment : Fragment() {
             } else if (binding.eventInfoInputTime.text.toString().isBlank()) {
                 activity?.toastUtil("공연 시작 시각을 입력해주십시오.")
             } else {
-                viewModel.startTime = binding.entranceTimeEdittext.text.toString()
-                viewModel.enterTime = binding.eventInfoInputTime.text.toString()
+                viewModel.startTime = "2020-09-17 10:00"
+                viewModel.enterTime = "2020-09-17 10:00"
                 viewModel.createConcert()
                 val intent = Intent(context, HostMainActivity::class.java)
                 activity?.startActivity(intent)
                 activity?.finishAffinity()
             }
         }
+    }
+
+    fun toDateFormat(time: String): String? {
+        val format = SimpleDateFormat("yyyy-MM-dd HH:mm")
+        return format.format(time).toString()
     }
 }
 
