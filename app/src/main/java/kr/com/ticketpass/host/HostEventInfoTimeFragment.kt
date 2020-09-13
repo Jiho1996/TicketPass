@@ -58,11 +58,14 @@ class HostEventInfoTimeFragment : Fragment() {
                 viewModel.startTime = "2020-09-17 10:00"
                 viewModel.enterTime = "2020-09-17 10:00"
                 viewModel.createConcert()
-                val intent = Intent(context, HostMainActivity::class.java)
-                activity?.startActivity(intent)
-                activity?.finishAffinity()
             }
         }
+
+        viewModel.createSuccess.observe(this, androidx.lifecycle.Observer {
+            val intent = Intent(context, HostMainActivity::class.java)
+            activity?.startActivity(intent)
+            activity?.finishAffinity()
+        })
     }
 
     fun toDateFormat(time: String): String? {
