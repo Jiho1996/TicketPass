@@ -60,7 +60,7 @@ class HostEventInfoTimeFragment : Fragment() {
                 viewModel.startTime = binding.entranceTimeEdittext.text.toString()
                 viewModel.enterTime = binding.eventInfoInputTime.text.toString()
                 viewModel.createConcert()
-                val intent = Intent(context, HostManageActivity::class.java)
+                val intent = Intent(context, HostMainActivity::class.java)
                 startActivity(intent)
             }
         }

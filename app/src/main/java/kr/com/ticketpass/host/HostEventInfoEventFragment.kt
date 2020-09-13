@@ -13,7 +13,6 @@ import kr.com.ticketpass.viewmodel.HostMainViewModel
 class HostEventInfoEventFragment : Fragment() {
     private lateinit var viewModel: HostMainViewModel
     private lateinit var binding: FragmentHostEventInfoEventBinding
-    var bundle = Bundle()
 
     companion object {
         fun newInstance(): HostEventInfoEventFragment {

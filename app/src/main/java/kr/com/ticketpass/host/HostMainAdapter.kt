@@ -11,6 +11,7 @@ import com.squareup.picasso.Picasso
 import kr.com.ticketpass.R
 import kr.com.ticketpass.databinding.ItemTicketHostBinding
 import kr.com.ticketpass.model.TicketResponse
+import java.io.Serializable
 
 class HostMainAdapter(
     val context: Context,
@@ -66,7 +67,7 @@ class HostMainAdapter(
 
             binding.hostExpandConcert.setOnClickListener {
                 val intent = Intent(context, HostManageActivity::class.java)
-                intent.putExtra("ticket", ticket)
+                intent.putExtra("ticket", ticket as Serializable)
                 context.startActivity(intent)
             }
 
