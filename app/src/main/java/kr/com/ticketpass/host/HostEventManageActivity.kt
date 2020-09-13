@@ -39,12 +39,6 @@ class HostEventManageActivity : AppCompatActivity() {
 
     fun navigatePwFragment() {
         supportFragmentManager.beginTransaction()
-            .add(R.id.event_info_container, hostEventInfoTimeFragment).commit()
-    }
-
-    override fun onBackPressed() {
-        super.onBackPressed()
-        supportFragmentManager.beginTransaction().remove(hostEventInfoTimeFragment).commit()
-        navigateEventFragment()
+            .add(R.id.event_info_container, hostEventInfoTimeFragment).addToBackStack(null).commit()
     }
 }

@@ -14,6 +14,7 @@ import kr.com.ticketpass.util.SingleLiveEvent
 
 class HostReservationViewModel: ViewModel() {
     val ticketQrSuccess: SingleLiveEvent<Void> = SingleLiveEvent()
+    val ticketQrFailed: SingleLiveEvent<Void> = SingleLiveEvent()
     var ticketInfoQr: MutableLiveData<TicketResponse.TicketInfo> = MutableLiveData()
 
     fun useTicketQr(userId: String, ticketData: String) {
@@ -27,6 +28,7 @@ class HostReservationViewModel: ViewModel() {
             .subscribe({
                 ticketQrSuccess.call()
             }, {
+                ticketQrFailed.call()
                 Logger.d(it.localizedMessage)
             })
     }

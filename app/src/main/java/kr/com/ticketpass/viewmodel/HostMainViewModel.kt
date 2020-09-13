@@ -29,7 +29,6 @@ import java.util.*
 import java.util.Collections.list
 import java.util.logging.Logger
 import kotlin.Comparator
-
 class HostMainViewModel : ViewModel() {
     var name: String = ""
     var startTime: String = ""
@@ -47,6 +46,7 @@ class HostMainViewModel : ViewModel() {
     val createSuccess: SingleLiveEvent<Void> = SingleLiveEvent()
     val getConcertInfoSuccess: SingleLiveEvent<Void> = SingleLiveEvent()
     val postConcertSyncSuccess: SingleLiveEvent<Void> = SingleLiveEvent()
+    val postConcertSyncFailed: SingleLiveEvent<Void> = SingleLiveEvent()
     val getConcertListSuccess: SingleLiveEvent<Void> = SingleLiveEvent()
 
     fun setString(sp : String) {
@@ -95,10 +95,11 @@ class HostMainViewModel : ViewModel() {
             .subscribe({
                 postConcertSyncSuccess.call()
             }, {
-                com.orhanobut.logger.Logger.d(it.localizedMessage)
+                postConcertSyncFailed.call()
             }
-            )
+    )
     }
+
 
     @SuppressLint("CheckResult")
     fun getConcertList() {

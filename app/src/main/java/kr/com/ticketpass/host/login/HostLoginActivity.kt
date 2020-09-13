@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import kr.com.ticketpass.R
 import kr.com.ticketpass.host.HostMainActivity
+import kr.com.ticketpass.util.sha256
 import kr.com.ticketpass.util.toastUtil
 import kr.com.ticketpass.viewmodel.LoginViewModel
 
@@ -37,16 +38,16 @@ class HostLoginActivity : AppCompatActivity() {
         } else if (binding.hostLoginPasswordEditText.text.isNullOrEmpty()) {
             this.toastUtil("비밀번호를 입력해주십시오")
         } else {
-            /*viewModel.doLogin(
-                    binding.guestLoginEmail.text.toString(),
-                    binding.guestLoginPassword.text.toString(),
-                    "PARTICIPANT"
-                )*/
             viewModel.doLogin(
+                    binding.hostLoginEmail.text.toString(),
+                    binding.hostLoginPasswordEditText.text.toString().sha256(),
+                    "HOST"
+                )
+            /*viewModel.doLogin(
                 "skfk0135@gmail.com",
                 "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
                 "HOST"
-            )
+            )*/
         }
     }
 

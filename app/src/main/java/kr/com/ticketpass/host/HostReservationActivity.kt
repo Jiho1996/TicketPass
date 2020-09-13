@@ -54,6 +54,10 @@ class HostReservationActivity : AppCompatActivity() {
             this.toastUtil("티켓 입장을 성공했습니다")
             finish()
         })
+
+        viewModel.ticketQrFailed.observe(this, Observer {
+            this.toastUtil("이미 입장한 관람객입니다")
+        })
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

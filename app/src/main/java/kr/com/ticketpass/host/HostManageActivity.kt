@@ -5,11 +5,12 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_host_about_event.*
 import kr.com.ticketpass.R
+import kr.com.ticketpass.model.ConcertInfo
 import kr.com.ticketpass.model.TicketResponse
 import java.io.Serializable
 
 class HostManageActivity : AppCompatActivity() {
-  private var ticket = TicketResponse.TicketInfo()
+  private var ticket = ConcertInfo()
 
     override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
@@ -17,7 +18,7 @@ class HostManageActivity : AppCompatActivity() {
 
             val tempIntent = intent.getSerializableExtra("ticket")
             if (tempIntent != null) {
-                ticket = (tempIntent as TicketResponse.TicketInfo)
+                ticket = (tempIntent as ConcertInfo)
             }
 
             event_info_button.setOnClickListener {

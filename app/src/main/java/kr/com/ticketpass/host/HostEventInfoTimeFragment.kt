@@ -22,7 +22,6 @@ import java.util.*
 
 class HostEventInfoTimeFragment : Fragment() {
     private lateinit var viewModel: HostMainViewModel
-    lateinit var viewModelFactory: ViewModelProvider.Factory
     private lateinit var binding: FragmentHostEventInfoTimeBinding
 
     companion object {
@@ -31,7 +30,6 @@ class HostEventInfoTimeFragment : Fragment() {
         }
     }
 
-    val myCalendar: Calendar = Calendar.getInstance()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -61,7 +59,8 @@ class HostEventInfoTimeFragment : Fragment() {
                 viewModel.enterTime = binding.eventInfoInputTime.text.toString()
                 viewModel.createConcert()
                 val intent = Intent(context, HostMainActivity::class.java)
-                startActivity(intent)
+                activity?.startActivity(intent)
+                activity?.finishAffinity()
             }
         }
     }

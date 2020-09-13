@@ -38,16 +38,16 @@ class GuestLoginActivity : AppCompatActivity() {
         } else if (binding.guestLoginPassword.text.isNullOrEmpty()) {
             this.toastUtil("비밀번호를 입력해주십시오")
         } else {
-            /*viewModel.doLogin(
+            viewModel.doLogin(
                     binding.guestLoginEmail.text.toString(),
                     binding.guestLoginPassword.text.toString().sha256(),
                     "PARTICIPANT"
-                )*/
-            viewModel.doLogin(
+                )
+            /*viewModel.doLogin(
                 "skfk0135@gmail.com",
                 "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
                 "PARTICIPANT"
-            )
+            )*/
         }
     }
 
