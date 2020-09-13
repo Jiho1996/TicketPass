@@ -1,5 +1,7 @@
 package kr.com.ticketpass.model
 
+import java.io.Serializable
+
 data class ConcertInfo (
     val id: String,
     val name: String,
@@ -10,4 +12,4 @@ data class ConcertInfo (
     val spreadsheetLink: String,
     val topImageLink: String,
     val bottomImageLink: String,
-)
+): Serializable

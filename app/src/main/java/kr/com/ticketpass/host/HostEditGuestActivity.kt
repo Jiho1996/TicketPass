@@ -13,17 +13,16 @@ import kr.com.ticketpass.model.TicketResponse
 import kr.com.ticketpass.viewmodel.HostMainViewModel
 
 class HostEditGuestActivity : AppCompatActivity() {
+
     private val viewModel: HostMainViewModel by lazy {
         ViewModelProvider(this).get(HostMainViewModel::class.java)
     }
     private lateinit var binding: ActivityEditGuestListBinding
-    val ticket = intent.getSerializableExtra("ticket") as TicketResponse.TicketInfo
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_guest_list)
-
+        val ticket = intent.getSerializableExtra("ticket") as TicketResponse.TicketInfo
 
         insert_button.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(ticket.concert.spreadsheetLink))
