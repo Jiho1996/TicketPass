@@ -10,12 +10,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import kr.com.ticketpass.R
 import kr.com.ticketpass.databinding.ItemTicketHostBinding
+import kr.com.ticketpass.model.ConcertInfo
 import kr.com.ticketpass.model.TicketResponse
 import java.io.Serializable
 
 class HostMainAdapter(
     val context: Context,
-    val tickets: MutableList<TicketResponse.TicketInfo>,
+    val concerts: MutableList<ConcertInfo>,
     val recyclerView: RecyclerView,
     val pictureType: Int
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -32,10 +33,10 @@ class HostMainAdapter(
         )
     }
 
-    override fun getItemCount(): Int = tickets.size
+    override fun getItemCount(): Int = concerts.size
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val ticket = tickets[position]
+        val ticket = concerts[position]
         if (ticket.expanded) {
             (holder as TicketViewHolder).expandableTicket.isVisible = true
             holder.expandableTicket.setExpanded(true)
@@ -44,12 +45,12 @@ class HostMainAdapter(
             holder.expandableTicket.setExpanded(false)
         }
 
-        holder.bind(tickets[position])
+        holder.bind(concerts[position])
     }
 
-    fun addList(tickets: MutableList<TicketResponse.TicketInfo>) {
-        this.tickets.clear()
-        this.tickets.addAll(tickets)
+    fun addList(tickets: MutableList<ConcertInfo>) {
+        this.concerts.clear()
+        this.concerts.addAll(tickets)
         notifyDataSetChanged()
     }
 
@@ -58,7 +59,7 @@ class HostMainAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
         val expandableTicket: LayoutHostTicket = binding.hostExpandTicketLayout
 
-        fun bind(ticket: TicketResponse.TicketInfo) {
+        fun bind(ticket: ConcertInfo) {
             binding.apply {
                 binding.model = ticket
             }
@@ -80,10 +81,10 @@ class HostMainAdapter(
                 if (expandableTicket.isExpanded()) {
                     expandableTicket.setExpanded(false)
                     expandableTicket.toggle()
-                    tickets.get(adapterPosition).expanded = false
+                    concerts.get(adapterPosition).expanded = false
                 } else {
                     expandableTicket.setExpanded(true)
-                    tickets.get(adapterPosition).expanded = true
+                    concerts.get(adapterPosition).expanded = true
                     expandableTicket.toggle()
                     if (lastExpandedCardPosition !== getAdapterPosition() && recyclerView.findViewHolderForAdapterPosition(
                             lastExpandedCardPosition
@@ -92,7 +93,7 @@ class HostMainAdapter(
                         (recyclerView.findViewHolderForAdapterPosition(lastExpandedCardPosition)!!.itemView.findViewById(
                             R.id.host_expand_ticket_layout
                         ) as LayoutHostTicket).setExpanded(false)
-                        tickets.get(lastExpandedCardPosition).expanded = false
+                        concerts.get(lastExpandedCardPosition).expanded = false
                         (recyclerView.findViewHolderForAdapterPosition(lastExpandedCardPosition)!!.itemView.findViewById(
                             R.id.host_expand_ticket_layout
                         ) as LayoutHostTicket).toggle()
@@ -100,7 +101,7 @@ class HostMainAdapter(
                             lastExpandedCardPosition
                         ) == null
                     ) {
-                        tickets.get(lastExpandedCardPosition).expanded = false
+                        concerts.get(lastExpandedCardPosition).expanded = false
                     }
                     lastExpandedCardPosition = adapterPosition
                 }

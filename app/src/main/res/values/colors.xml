@@ -6,6 +6,7 @@
     
     <color name="colorWarningRed">#FF0000</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="colorWhiteTrans">#35000000</color>
     <color name="colorWhiteEE">#EEEEEE</color>
     <color name="colorWhiteDD">#DDDDDD</color>
     <color name="colorWarm">#999999</color>

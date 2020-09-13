@@ -50,6 +50,7 @@
             android:textColor="@color/colorWarm"
             android:textColorHint="@color/colorWarm"
             android:textSize="18sp"
+            android:inputType="textPassword"
             app:layout_constraintBottom_toTopOf="@+id/host_login_id_warning_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -77,6 +78,7 @@
             android:layout_marginRight="32dp"
             android:fontFamily="@font/paybooc_medium"
             android:gravity="left"
+
             android:text="@string/password_verify"
             android:textColor="@color/colorWarm"
             android:textSize="14sp"
@@ -105,6 +107,7 @@
                 android:background="@drawable/edit_text_underline_white"
                 android:gravity="left|center_vertical"
                 android:hint="@string/password_constraint"
+                android:inputType="textPassword"
                 android:paddingStart="4dp"
                 android:paddingLeft="4dp"
                 android:paddingBottom="9dp"
