@@ -9,8 +9,7 @@ import kr.com.ticketpass.model.TicketResponse
 import java.io.Serializable
 
 class HostManageActivity : AppCompatActivity() {
-
-  private lateinit var ticket : TicketResponse.TicketInfo
+  private var ticket = TicketResponse.TicketInfo()
 
     override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
