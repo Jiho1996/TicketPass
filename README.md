@@ -4,6 +4,11 @@ an application for simplifying ticket authentication. (2020 CSE software contest
 
 ## 공연 티켓 인증의 간소화를 위한 서비스, 티켓패스입니다.
 
+ <p align="center">
+	<img src="https://user-images.githubusercontent.com/65906458/114913794-9346c280-9e5c-11eb-9393-56d9e1212cb6.png" />
+</p>
+
+
 <br>
 <br>
   <h3 align = "center"> 로그인 </h3>
